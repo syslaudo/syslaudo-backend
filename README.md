@@ -1,18 +1,19 @@
-# ABFLN³
+# Sistema de Laudos de Cardiologia
 
 Projeto para a matéria de Laboratório de Engenharia de Software.
 
-## Grupo
+## Grupo ABFLN³
 
-Scrum Master: Natália Braga da Fonseca - natalia.braga@souunit.com.br
+**Alisson Felipe Lima Santos** - alisson.flima@souunit.com.br - Desenvolvedor
 
-Product Owner: Natan Nascimento Oliveira Matos - natan.oliveira@souunit.com.br
+**Bruno César Fontes Vieira** - bruno.cfontes@souunit.com.br - Desenvolvedor
 
-Alisson Felipe Lima Santos - alisson.flima@souunit.com.br
+**Fernanda Amaral de Souza** - fernanda.amaral00@souunit.com.br - Desenvolvedora
 
-Bruno César Fontes Vieira - bruno.cfontes@souunit.com.br
+**Lucas Santos Souza** - lucas.santos00@souunit.com.br - DBA
 
-Fernanda Amaral de Souza * - fernanda.amaral00@souunit.com.br
+**Natália Braga da Fonseca** - natalia.braga@souunit.com.br - Scrum Master e Desenvolvedora
 
-Natalie Pereira Macedo - natalie.pereira@souunit.com.br
+**Natan Nascimento Oliveira Matos** - natan.oliveira@souunit.com.br - Product Owner e Desenvolvedor
 
+**Natalie Pereira Macedo** - natalie.pereira@souunit.com.br - Desenvolvedora
