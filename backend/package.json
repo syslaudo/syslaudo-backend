@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for ABFLN³",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliafonseca/abfln.git"
+  },
+  "keywords": [
+    "healthcare"
+  ],
+  "author": "ABFLN³ Development Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nataliafonseca/abfln/issues"
+  },
+  "homepage": "https://github.com/nataliafonseca/abfln#readme"
+}
