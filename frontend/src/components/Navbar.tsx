@@ -170,7 +170,7 @@ export default function Navbar() {
 
       <div className="user">
         <div className="dropdown">
-          <div class="profile item">
+          <div className="profile item">
             <span className="username">Fulano de Tal</span>
             <img src={profileSymbol} alt="User Symbol" />
             <ul className="submenu">
