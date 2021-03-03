@@ -5,10 +5,11 @@ const StyledBody = styled.div`
   background: ${colors.componentBackground};
 
   .container {
-    max-width: 65vw;
-    min-height: 60vh;
-    margin: 3vh auto;
-    padding: 3vh;
-  }`;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 3rem;
+    min-height: calc(100vh - 31.1rem);
+  }
+`;
 
 export { StyledBody };

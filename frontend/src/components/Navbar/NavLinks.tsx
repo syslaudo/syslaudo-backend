@@ -31,7 +31,7 @@ const NavLinks = () => {
         <span className="submenuTitle">EXAMES</span>
         <ul className="submenu">
           <Link className="subitem" to="/solicitar-exame">
-            Cadastrar
+            Solicitar
           </Link>
           <Link className="subitem" to="/listar-exame">
             Listar

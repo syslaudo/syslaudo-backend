@@ -11,8 +11,8 @@ const StyledDesktopNavbar = styled.nav`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 65vw;
-    height: 5vh;
+    max-width: 80rem;
+    height: 5rem;
     margin: 0 auto;
   }
 
@@ -20,7 +20,7 @@ const StyledDesktopNavbar = styled.nav`
   .profile {
     display: flex;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 800px) {
       display: none;
     }
   }
@@ -41,12 +41,6 @@ const StyledDesktopNavbar = styled.nav`
     background: ${colors.componentBackground};
     transition: 200ms;
     background: transparent;
-  }
-
-  .submenuTitle {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
   }
 
   .submenu {
@@ -79,13 +73,19 @@ const StyledDesktopNavbar = styled.nav`
     display: block;
   }
 
+
   .submenuTitle {
-    color: ${colors.text};
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin: 2rem 1rem;
+  }
+
+  .submenuTitleComImagem {
     margin: 1.5rem 1rem;
   }
 
-  .item:hover .submenuTitle {
+  .item:hover .submenuTitle{
     font-weight: bold;
     color: ${colors.primary};
   }
@@ -115,7 +115,7 @@ const HamburguerButton = styled.button`
     outline: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     display: block;
   }
 `;
@@ -133,9 +133,13 @@ const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     align-items: center;
     width: 100%;
     font-size: 1.5vh;
-    font-weight: bold;
     border-bottom: 1px solid ${colors.hover};
     padding: 1vh;
+    background: ${colors.componentBackground};
+  }
+
+  .submenuTitle {
+    font-weight: bold;
   }
 
   .submenuTitle {
@@ -151,7 +155,7 @@ const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     display: none;
   }
 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 800px) {
     display: none;
   }
 `;

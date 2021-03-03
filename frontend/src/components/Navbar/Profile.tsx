@@ -2,14 +2,14 @@ const Profile = () => {
   return (
     <ul className="profile">
       <li className="item">
-        <div className="submenuTitle">
+        <div className="submenuTitle submenuTitleComImagem">
           <span>%USERNAME% &nbsp;&nbsp;</span>
           <span>
             <i className="far fa-user-circle"></i>
           </span>
         </div>
         <ul className="submenu">
-          <a className="subitem" href="/seu-perfil">
+          <a className="subitem" href="/perfil">
             Seu Perfil
           </a>
           <a className="subitem" href="/configuracoes">

@@ -1,7 +1,9 @@
+import Title from '../components/Title';
+
 function PageNotFound() {
   return (
     <div className="PageNotFound">
-      <h1>ERRO 404 - Página Não Encontrada.</h1>
+      <Title>ERRO 404 - Página Não Encontrada</Title>
     </div>
   );
 }
