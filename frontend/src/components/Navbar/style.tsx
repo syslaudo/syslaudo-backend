@@ -2,37 +2,24 @@ import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
 const StyledNavbar = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: ${colors.componentBackground};
-  max-width: 82.5rem;
-  margin: 1.5rem auto;
-  box-shadow: 0 0 20px ${colors.shadow};
-  border-radius: 20px;
+  border-bottom: 1px solid ${colors.hover};
 
-  ul {
+  > div {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 82.5rem;
+    height: 4rem;
   }
 
-  >ul:first-of-type img {
-    height: 50px;
-    margin: 1rem;
+  > div > ul {
+    display: flex;
   }
 
-  >ul:last-of-type img {
-    height: 50px;
-    margin-left: 1rem;
-  }
-
-  span {
-    color: ${colors.text};
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 1rem 0.5rem;
-    vertical-align: text-bottom;
+  > div > ul:last-of-type {
+    margin-left: auto;
   }
 
   button {
@@ -40,65 +27,68 @@ const StyledNavbar = styled.nav`
   }
 `;
 
-const Dropdown = styled.nav`
-  position: relative;
-  display: inline-block;
+const Item = styled.nav`
   cursor: context-menu;
 
-  >li {
+  > li {
     position: relative;
-    display: flex;
-    flex: 1;
-    margin: 1rem;
-    padding: 1rem;
+    display: block;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    font-weight: 600;
+    padding: 0 0.5rem;
     color: ${colors.text};
     background: ${colors.background};
-    border-radius: 20px;
     transition: 200ms;
   }
 
-  >li>ul {
-    display: none;
-    position: absolute;
-    top: 4rem;
-    background-color: ${colors.componentBackground};
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px ${colors.shadow};
-    z-index: 1;
-    border-radius: 20px;
+  > li > div,
+  > li > span {
+    display: flex;
+    align-items: center;
   }
 
-  >li>ul>a {
+  > li > ul {
+    display: none;
+    position: absolute;
+    background-color: ${colors.componentBackground};
+    border-top: 1px solid ${colors.hover};
+    border-left: 1px solid ${colors.hover};
+    border-right: 1px solid ${colors.hover};
+  }
+
+  > li > ul > a {
     position: relative;
     display: flex;
-    flex: 1;
-    margin: 1rem;
     padding: 1rem;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    font-weight: 600;
     color: ${colors.text};
     background: ${colors.background};
-    border-radius: 20px;
     text-decoration: none;
+    border-bottom: 1px solid ${colors.hover};
+    transition: 200ms;
   }
 
-  >li>ul>a:hover {
+  > li > ul > a:hover {
     background-color: ${colors.hover};
   }
 
-  :hover li>ul {
+  :hover li > ul {
     display: block;
   }
 
-  :hover >li {
-    background-color: ${colors.hover};
+  span {
+    color: ${colors.text};
+    font-size: 1rem;
+    margin: 1.5rem 1rem;
+  }
+
+  img {
+    height: 2rem;
+    margin: 0.9rem 0.5rem;
   }
 `;
 
-export { StyledNavbar, Dropdown };
+export { StyledNavbar, Item };

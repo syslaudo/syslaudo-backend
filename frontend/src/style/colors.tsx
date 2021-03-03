@@ -1,5 +1,6 @@
 export const primary = '#0190ab';
-export const background = '#f2f3f5';
+export const background = '#fff';
+// export const background = '#f2f3f5';
 export const componentBackground = '#fff';
 export const text = '#444';
 export const darkBackground = '#191919';
