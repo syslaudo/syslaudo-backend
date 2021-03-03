@@ -11,8 +11,8 @@ const StyledDesktopNavbar = styled.nav`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 85vh;
-    height: 4rem;
+    max-width: 65vw;
+    height: 5vh;
     margin: 0 auto;
   }
 
@@ -46,6 +46,7 @@ const StyledDesktopNavbar = styled.nav`
   .submenuTitle {
     display: flex;
     align-items: center;
+    white-space: nowrap;
   }
 
   .submenu {

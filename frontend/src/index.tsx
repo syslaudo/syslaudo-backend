@@ -6,6 +6,7 @@ import Body from './components/Body'
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import { GlobalStyle } from './style/base';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.Fragment>
@@ -18,6 +19,7 @@ ReactDOM.render(
           <Route path="*" component={PageNotFound} />
         </Switch>
       </Body>
+      <Footer />
     </BrowserRouter>
   </React.Fragment>,
   document.getElementById('root')
