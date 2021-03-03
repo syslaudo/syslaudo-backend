@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
-const StyledNavbar = styled.div``;
-
-const StyledDesktopNavbar = styled.nav`
+export const StyledDesktopNavbar = styled.nav`
   background: ${colors.componentBackground};
   border-bottom: 1px solid ${colors.hover};
+  width: 100vw;
+
 
   .container {
     display: flex;
@@ -20,7 +20,7 @@ const StyledDesktopNavbar = styled.nav`
   .profile {
     display: flex;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       display: none;
     }
   }
@@ -73,19 +73,18 @@ const StyledDesktopNavbar = styled.nav`
     display: block;
   }
 
-
-  .submenuTitle {
+  .itemTitle {
     display: flex;
     align-items: center;
     white-space: nowrap;
     margin: 2rem 1rem;
   }
 
-  .submenuTitleComImagem {
+  .itemTitleComImagem {
     margin: 1.5rem 1rem;
   }
 
-  .item:hover .submenuTitle{
+  .item:hover .itemTitle {
     font-weight: bold;
     color: ${colors.primary};
   }
@@ -101,7 +100,7 @@ const StyledDesktopNavbar = styled.nav`
   }
 `;
 
-const HamburguerButton = styled.button`
+export const HamburguerButton = styled.button`
   display: none;
   font-size: 2rem;
   font-weight: bold;
@@ -111,38 +110,34 @@ const HamburguerButton = styled.button`
   background: none;
   border: none;
 
-  :focus {
-    outline: 0;
-  }
-
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     display: block;
   }
 `;
 
-const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
-  width: 100%;
+export const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
+  width: 100vw;
   display: ${(props) => (props.displayMobile ? 'flex' : 'none')};
   flex-direction: column;
 
-  .submenuTitle,
+  .itemTitle,
   .subitem {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
     align-items: center;
-    width: 100%;
-    font-size: 1.5vh;
+    width: 100vw;
+    font-size: 1rem;
     border-bottom: 1px solid ${colors.hover};
-    padding: 1vh;
+    padding: 1vh 0;
     background: ${colors.componentBackground};
   }
 
-  .submenuTitle {
+  .itemTitle {
     font-weight: bold;
   }
 
-  .submenuTitle {
+  .itemTitle {
     background: ${colors.primary};
     color: ${colors.background};
   }
@@ -151,18 +146,12 @@ const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     background: ${colors.hover};
   }
 
-  .fa-user-circle {
+  .fas,
+  .far {
     display: none;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1000px) {
     display: none;
   }
 `;
-
-export {
-  StyledNavbar,
-  StyledDesktopNavbar,
-  HamburguerButton,
-  StyledMobileNavbar,
-};

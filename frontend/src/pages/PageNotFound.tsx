@@ -1,11 +1,18 @@
-import Title from '../components/Title';
+import notFound from '../assets/undraw_not_found_60pq.svg';
 
-function PageNotFound() {
+export default function PageNotFound() {
   return (
     <div className="PageNotFound">
-      <Title>ERRO 404 - Página Não Encontrada</Title>
+
+      <div className="conteinerCentralizado">
+        <img src={notFound} alt="Erro 404 - Página Não Encontrada" />
+      </div>
+      <br />
+      <br />
+      <br />
+      <p className="centeredText boldText bigText">
+        Erro 404 - Página não encontrada
+      </p>
     </div>
   );
 }
-
-export default PageNotFound;

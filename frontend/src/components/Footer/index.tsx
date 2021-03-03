@@ -2,7 +2,7 @@ import { StyledFooter } from './style';
 
 export default function Footer(props: any) {
   return (
-    <StyledFooter>
+    <StyledFooter className={props.className}>
       <div className="container">
         <table>
           <tr>
@@ -43,7 +43,7 @@ export default function Footer(props: any) {
                 <i className="fas fa-at"></i>
               </a>
               &nbsp;&nbsp;
-              <a href="https://github.com/">
+              <a href="https://github.com/euninha1">
                 <i className="fab fa-github"></i>
               </a>
             </td>

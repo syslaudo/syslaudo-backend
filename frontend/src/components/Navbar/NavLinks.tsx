@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const NavLinks = () => {
   return (
     <ul className="navlinks">
       <li className="item">
-        <span className="submenuTitle">MÉDICOS</span>
+        <Link className="itemTitle" to="/">
+          INÍCIO
+        </Link>
+      </li>
+
+      <li className="item">
+        <span className="itemTitle">MÉDICOS &nbsp;<i className="fas fa-caret-down"></i></span>
         <ul className="submenu">
-          <Link className="subitem" to="/cadrastrar-medico">
+          <Link className="subitem" to="/cadastrar-medico">
             Cadastrar
           </Link>
           <Link className="subitem" to="/listar-medicos">
@@ -16,7 +22,7 @@ const NavLinks = () => {
       </li>
 
       <li className="item">
-        <span className="submenuTitle">PACIENTES</span>
+        <span className="itemTitle">PACIENTES &nbsp; <i className="fas fa-caret-down"></i></span>
         <ul className="submenu">
           <Link className="subitem" to="/cadastrar-paciente">
             Cadastrar
@@ -28,12 +34,12 @@ const NavLinks = () => {
       </li>
 
       <li className="item">
-        <span className="submenuTitle">EXAMES</span>
+        <span className="itemTitle">EXAMES &nbsp; <i className="fas fa-caret-down"></i></span>
         <ul className="submenu">
           <Link className="subitem" to="/solicitar-exame">
             Solicitar
           </Link>
-          <Link className="subitem" to="/listar-exame">
+          <Link className="subitem" to="/listar-exames">
             Listar
           </Link>
         </ul>

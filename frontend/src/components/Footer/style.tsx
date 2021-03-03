@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
-const StyledFooter = styled.div`
+export const StyledFooter = styled.div`
   background: ${colors.darkBackground};
   color: ${colors.lightText};
+  max-width: 100vw;
 
   .container {
-    max-width: 80rem;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    height: 20rem;
+    min-height: 3rem;
 
     > p {
       margin: 0 auto 1rem auto;
@@ -19,7 +20,7 @@ const StyledFooter = styled.div`
 
     table {
       margin: 2rem auto;
-      min-width: 35rem;
+      min-width: 30vw;
     }
 
     th {
@@ -42,7 +43,13 @@ const StyledFooter = styled.div`
     td {
       padding: 0.3rem 2rem;
     }
+
+    a {
+    transition: 200ms;
+
+    :hover {
+      color: ${colors.primaryHover};
+    }
+  }
   }
 `;
-
-export { StyledFooter };

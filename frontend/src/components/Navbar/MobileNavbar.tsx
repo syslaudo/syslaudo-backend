@@ -5,7 +5,10 @@ import { StyledMobileNavbar } from './style';
 
 const MobileNavbar = (props: any) => {
   return (
-    <StyledMobileNavbar displayMobile={props.displayMobile}>
+    <StyledMobileNavbar
+      className={props.className}
+      displayMobile={props.displayMobile}
+    >
       <NavLinks />
       <Profile />
     </StyledMobileNavbar>

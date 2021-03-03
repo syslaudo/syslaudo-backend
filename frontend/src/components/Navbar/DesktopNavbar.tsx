@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const DesktopNavbar = (props: any) => {
   return (
-    <StyledDesktopNavbar>
+    <StyledDesktopNavbar className={props.className}>
       <div className="container">
         <ul className="flexitem">
           <li className="item">
@@ -19,7 +19,7 @@ const DesktopNavbar = (props: any) => {
         </ul>
         <NavLinks />
         <Profile />
-        <HamburguerButton onClick={props.toggleMobile}><i className="fas fa-bars"></i></HamburguerButton>
+        <HamburguerButton onClick={props.toggleMobile} onMouseDown={e => e.preventDefault()}><i className="fas fa-bars"></i></HamburguerButton>
       </div>
     </StyledDesktopNavbar>
   );
