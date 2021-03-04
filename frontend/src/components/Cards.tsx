@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import * as colors from '../../style/colors';
+import * as colors from '../style/colors';
 
-export const StyledCard = styled.div`
+export const Card = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
@@ -20,7 +20,7 @@ export const StyledCard = styled.div`
   }
 `;
 
-export const StyledCardGroup = styled.div`
+export const CardGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1rem;

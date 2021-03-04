@@ -5,7 +5,6 @@ import {
   Input,
   InputGroup,
   Label,
-  ValidationMessage,
 } from '../components/FormElements';
 import { Title } from '../components/TextElements';
 
@@ -15,18 +14,23 @@ export default function CadastrarMedico() {
       <Title>Cadastro de Médico</Title>
       <Form>
         <InputGroup>
-          <Label htmlFor="label">Label</Label>
-          <Input id="label" />
-          <ValidationMessage>This is the validation message</ValidationMessage>
+          <Label htmlFor="nome">Nome</Label>
+          <Input id="nome" />
         </InputGroup>
+
         <InputGroup>
-          <Label>Label 2</Label>
-          <Input />
-          <ValidationMessage>This is the validation message</ValidationMessage>
+          <Label htmlFor="crm">CRM</Label>
+          <Input id="crm" />
         </InputGroup>
+
+        <InputGroup>
+          <Label htmlFor="tipo">Tipo</Label>
+          <Input id="tipo" disabled={true} />
+        </InputGroup>
+
         <ButtonGroup>
-          <Button primary={true}>Enviar</Button>
-          <Button>Apagar</Button>
+          <Button primary>Enviar</Button>
+          <Button>Limpar</Button>
         </ButtonGroup>
       </Form>
     </div>
