@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import * as colors from '../style/colors';
+import * as colors from '../../style/colors';
 
 export const Form = styled.div`
   display: block;
-  width: 80%;
-  margin: 2rem auto;
+  width: 100%;
+  margin: auto;
 `;
 
 export const InputGroup = styled.div`
@@ -61,7 +61,7 @@ export const Input = styled.input`
   border: 1px solid ${colors.text};
   background: ${colors.componentBackground};
   border-radius: 5px;
-  width: 100%;
+  width: calc(100% - 1.2rem);
   margin-bottom: 0.5em;
 
   :disabled {
@@ -74,3 +74,63 @@ export const Input = styled.input`
     box-shadow: 0 0 0 2px ${colors.primaryShadow};
   }
 `;
+
+export const RadioGroup = styled.div`
+  display: flex;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+`;
+
+const Radio = styled.label`
+  display: flex;
+  margin-right: 2rem;
+  padding: 0.6rem 0;
+  border-radius: 5px;
+
+  input {
+    display: none;
+  }
+
+  span {
+    border: 1px solid ${colors.text};
+    padding: 0.6rem;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  input:checked + span {
+    color: ${colors.primary};
+    border: 1px solid ${colors.primary};
+    box-shadow: 0 0 0 2px ${colors.primaryShadow};
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+
+    span {
+      width: calc(100% - 1.2rem);
+      text-align: center;
+    }
+  }
+`;
+
+export function RadioButton(props: any) {
+  return (
+    <Radio>
+      <input
+        type="radio"
+        name={props.name}
+        id={props.id}
+        value={props.value}
+        checked={props.checked}
+        onChange={props.onChange}
+      />
+      <span>{props.id}</span>
+    </Radio>
+  );
+}

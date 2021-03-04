@@ -151,7 +151,7 @@ export const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     display: none;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1001px) {
     display: none;
   }
 `;

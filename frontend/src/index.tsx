@@ -24,6 +24,7 @@ ReactDOM.render(
       <Body>
         <Switch>
           <Route path="/" exact={true} component={Inicio} />
+          <Route path="/inicio" component={Inicio} />
           <Route path="/cadastrar-medico" component={CadastrarMedico} />
           <Route path="/listar-medicos" component={ListarMedicos} />
           <Route path="/cadastrar-paciente" component={CadastrarPaciente} />

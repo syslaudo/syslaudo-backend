@@ -7,13 +7,7 @@ export default function Navbar() {
     false
   );
 
-  const toggleMobile = () => {
-    if (displayMobile) {
-      setDisplayMobile(false);
-    } else {
-      setDisplayMobile(true);
-    }
-  };
+  const toggleMobile = () => {displayMobile ? setDisplayMobile(false) : setDisplayMobile(true)}
 
     return (
       <div>
