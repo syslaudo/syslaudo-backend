@@ -2,7 +2,7 @@
 <MER>
 	<Informacoes>
 		<Posicao Left="0" Top="0"/>
-		<TotalItens Valor="46"/>
+		<TotalItens Valor="66"/>
 		<Tipo Valor="LÓGICO"/>
 		<Versao Valor="2.0.0"/>
 		<Autor Valor=""/>
@@ -346,10 +346,10 @@
       </Campos>
     </Tabela>
     <Tabela nome="Pacientes" id="20">
-      <Left Valor="94"/>
-      <Top Valor="334"/>
+      <Left Valor="77"/>
+      <Top Valor="313"/>
       <Width Valor="180"/>
-      <Height Valor="154"/>
+      <Height Valor="172"/>
       <Fonte default="0">
         <FonteNome Valor="Tahoma"/>
         <FonteTamanho Valor="8"/>
@@ -366,8 +366,8 @@
       <cOrdem Valor="0"/>
       <Campos>
         <Campo nome="id_paciente" id="24">
-          <Left Valor="94"/>
-          <Top Valor="353"/>
+          <Left Valor="77"/>
+          <Top Valor="332"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -392,8 +392,8 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="nome_paciente" id="25">
-          <Left Valor="94"/>
-          <Top Valor="371"/>
+          <Left Valor="77"/>
+          <Top Valor="350"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -418,8 +418,8 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="sexo_paciente" id="26">
-          <Left Valor="94"/>
-          <Top Valor="389"/>
+          <Left Valor="77"/>
+          <Top Valor="368"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -444,8 +444,8 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="cor_paciente" id="27">
-          <Left Valor="94"/>
-          <Top Valor="407"/>
+          <Left Valor="77"/>
+          <Top Valor="386"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -470,8 +470,8 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="datnasc_paciente" id="29">
-          <Left Valor="94"/>
-          <Top Valor="425"/>
+          <Left Valor="77"/>
+          <Top Valor="404"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -496,8 +496,8 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="Chave Estrangeira" id="42">
-          <Left Valor="94"/>
-          <Top Valor="443"/>
+          <Left Valor="77"/>
+          <Top Valor="422"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -514,8 +514,8 @@
           <ApenasSeparador Valor="-1"/>
         </Campo>
         <Campo nome="id_paciente" id="43">
-          <Left Valor="94"/>
-          <Top Valor="461"/>
+          <Left Valor="77"/>
+          <Top Valor="440"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -539,13 +539,39 @@
           <OnUpdate Valor="0"/>
           <OnDelete Valor="0"/>
         </Campo>
+        <Campo nome="aguarda_realizacao" id="49">
+          <Left Valor="77"/>
+          <Top Valor="458"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="-1"/>
+          <Tipo Valor="boolean"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
       </Campos>
     </Tabela>
     <Tabela nome="Pedidos de Exame" id="31">
-      <Left Valor="452"/>
-      <Top Valor="302"/>
-      <Width Valor="180"/>
-      <Height Valor="118"/>
+      <Left Valor="437"/>
+      <Top Valor="295"/>
+      <Width Valor="210"/>
+      <Height Valor="208"/>
       <Fonte default="0">
         <FonteNome Valor="Tahoma"/>
         <FonteTamanho Valor="8"/>
@@ -562,9 +588,9 @@
       <cOrdem Valor="0"/>
       <Campos>
         <Campo nome="id_pedido" id="32">
-          <Left Valor="452"/>
-          <Top Valor="321"/>
-          <Width Valor="178"/>
+          <Left Valor="437"/>
+          <Top Valor="314"/>
+          <Width Valor="208"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -587,10 +613,158 @@
           <OnUpdate Valor="0"/>
           <OnDelete Valor="0"/>
         </Campo>
+        <Campo nome="nome_exame" id="45">
+          <Left Valor="437"/>
+          <Top Valor="332"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(20)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="data_prevista" id="50">
+          <Left Valor="437"/>
+          <Top Valor="350"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="DATETIME"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="hipotese_diagnostico" id="62">
+          <Left Valor="437"/>
+          <Top Valor="368"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(64)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="recomendacoes" id="66">
+          <Left Valor="437"/>
+          <Top Valor="386"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(128)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="Chave Estrangeira" id="51">
+          <Left Valor="437"/>
+          <Top Valor="404"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="-1"/>
+        </Campo>
+        <Campo nome="id_pedido" id="65">
+          <Left Valor="437"/>
+          <Top Valor="422"/>
+          <Width Valor="208"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="-1"/>
+          <Tipo Valor="VARCHAR(128)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
         <Campo nome="id_paciente" id="34">
-          <Left Valor="452"/>
-          <Top Valor="339"/>
-          <Width Valor="178"/>
+          <Left Valor="437"/>
+          <Top Valor="440"/>
+          <Width Valor="208"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -614,9 +788,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="id_medico" id="35">
-          <Left Valor="452"/>
-          <Top Valor="357"/>
-          <Width Valor="178"/>
+          <Left Valor="437"/>
+          <Top Valor="458"/>
+          <Width Valor="208"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -639,10 +813,10 @@
           <OnUpdate Valor="0"/>
           <OnDelete Valor="0"/>
         </Campo>
-        <Campo nome="nome_exame" id="45">
-          <Left Valor="452"/>
-          <Top Valor="375"/>
-          <Width Valor="178"/>
+        <Campo nome="aguarda_realizacao" id="48">
+          <Left Valor="437"/>
+          <Top Valor="476"/>
+          <Width Valor="208"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -657,17 +831,65 @@
           <Anexos/>
           <ApenasSeparador Valor="0"/>
           <IsKey Valor="0"/>
-          <IsFKey Valor="0"/>
-          <Tipo Valor="VARCHAR(20)"/>
+          <IsFKey Valor="-1"/>
+          <Tipo Valor="boolean"/>
           <TabOrigem Valor="0"/>
           <CampoOrigem Valor="0"/>
           <Complemento Valor=""/>
           <OnUpdate Valor="0"/>
           <OnDelete Valor="0"/>
         </Campo>
-        <Campo nome="Campo1" id="46">
-          <Left Valor="452"/>
-          <Top Valor="393"/>
+      </Campos>
+    </Tabela>
+    <Tabela nome="Exames" id="52">
+      <Left Valor="799"/>
+      <Top Valor="313"/>
+      <Width Valor="180"/>
+      <Height Valor="172"/>
+      <Fonte default="0">
+        <FonteNome Valor="Tahoma"/>
+        <FonteTamanho Valor="8"/>
+        <FonteEstilo Valor="[]"/>
+        <FonteCor Valor="0"/>
+      </Fonte>
+      <Dicionario></Dicionario>
+      <Nula Valor="0"/>
+      <Observacao></Observacao>
+      <Futuro></Futuro>
+      <Anexos/>
+      <Color Valor="12639424"/>
+      <Complemento Valor=""/>
+      <cOrdem Valor="0"/>
+      <Campos>
+        <Campo nome="id_exame" id="56">
+          <Left Valor="799"/>
+          <Top Valor="332"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="-1"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(128)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="data_realizacao" id="57">
+          <Left Valor="799"/>
+          <Top Valor="350"/>
           <Width Valor="178"/>
           <Height Valor="19"/>
           <Fonte default="0">
@@ -684,7 +906,155 @@
           <ApenasSeparador Valor="0"/>
           <IsKey Valor="0"/>
           <IsFKey Valor="0"/>
-          <Tipo Valor="Número(4)"/>
+          <Tipo Valor="DATETIME"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="hora_realizacao" id="58">
+          <Left Valor="799"/>
+          <Top Valor="368"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="DATETIME"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="laudo_medico" id="59">
+          <Left Valor="799"/>
+          <Top Valor="386"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(64)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="tipo_exame" id="60">
+          <Left Valor="799"/>
+          <Top Valor="404"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(17)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="imagem_exame" id="61">
+          <Left Valor="799"/>
+          <Top Valor="422"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="0"/>
+          <Tipo Valor="VARCHAR(64)"/>
+          <TabOrigem Valor="0"/>
+          <CampoOrigem Valor="0"/>
+          <Complemento Valor=""/>
+          <OnUpdate Valor="0"/>
+          <OnDelete Valor="0"/>
+        </Campo>
+        <Campo nome="Chave Estrangeira" id="63">
+          <Left Valor="799"/>
+          <Top Valor="440"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="-1"/>
+        </Campo>
+        <Campo nome="id_pedido" id="64">
+          <Left Valor="799"/>
+          <Top Valor="458"/>
+          <Width Valor="178"/>
+          <Height Valor="19"/>
+          <Fonte default="0">
+            <FonteNome Valor="Tahoma"/>
+            <FonteTamanho Valor="8"/>
+            <FonteEstilo Valor="[]"/>
+            <FonteCor Valor="0"/>
+          </Fonte>
+          <Dicionario></Dicionario>
+          <Nula Valor="-1"/>
+          <Observacao></Observacao>
+          <Futuro></Futuro>
+          <Anexos/>
+          <ApenasSeparador Valor="0"/>
+          <IsKey Valor="0"/>
+          <IsFKey Valor="-1"/>
+          <Tipo Valor="VARCHAR(128)"/>
           <TabOrigem Valor="0"/>
           <CampoOrigem Valor="0"/>
           <Complemento Valor=""/>
@@ -860,8 +1230,8 @@
       </Ligacoes>
     </LigaTabela>
     <LigaTabela nome="Pacientes_Registros1" id="36">
-      <Left Valor="352"/>
-      <Top Valor="336"/>
+      <Left Valor="348"/>
+      <Top Valor="392"/>
       <Width Valor="15"/>
       <Height Valor="15"/>
       <Fonte default="0">
@@ -881,8 +1251,8 @@
           <MostraCardinalidade Valor="-1" Card_id="37"/>
           <Cardinalidades Cardinalidade="1">
             <Cardinalidade nome="" id="37">
-              <Left Valor="274"/>
-              <Top Valor="396"/>
+              <Left Valor="257"/>
+              <Top Valor="384"/>
               <Width Valor="37"/>
               <Height Valor="20"/>
               <Fonte default="0">
@@ -912,8 +1282,8 @@
           <MostraCardinalidade Valor="-1" Card_id="38"/>
           <Cardinalidades Cardinalidade="4">
             <Cardinalidade nome="" id="38">
-              <Left Valor="417"/>
-              <Top Valor="346"/>
+              <Left Valor="402"/>
+              <Top Valor="384"/>
               <Width Valor="37"/>
               <Height Valor="20"/>
               <Fonte default="0">
@@ -995,7 +1365,7 @@
           <Cardinalidades Cardinalidade="4">
             <Cardinalidade nome="" id="40">
               <Left Valor="542"/>
-              <Top Valor="287"/>
+              <Top Valor="280"/>
               <Width Valor="37"/>
               <Height Valor="20"/>
               <Fonte default="0">
@@ -1014,6 +1384,88 @@
               <Tipo Valor="0"/>
               <TextAlin Valor="0"/>
               <Card Valor="4"/>
+              <Fixa Valor="0"/>
+              <Ligacoes/>
+            </Cardinalidade>
+          </Cardinalidades>
+          <Orientacao Valor="0"/>
+          <Fraca Valor="0"/>
+        </Ligacao>
+      </Ligacoes>
+    </LigaTabela>
+    <LigaTabela nome="Exames_Pedidos de Exame1" id="53">
+      <Left Valor="711"/>
+      <Top Valor="392"/>
+      <Width Valor="15"/>
+      <Height Valor="15"/>
+      <Fonte default="0">
+        <FonteNome Valor="Tahoma"/>
+        <FonteTamanho Valor="8"/>
+        <FonteEstilo Valor="[]"/>
+        <FonteCor Valor="0"/>
+      </Fonte>
+      <Dicionario></Dicionario>
+      <Nula Valor="0"/>
+      <Observacao></Observacao>
+      <Futuro></Futuro>
+      <Anexos/>
+      <SetaDirecao Valor="0"/>
+      <Ligacoes>
+        <Ligacao Destino_ID="52">
+          <MostraCardinalidade Valor="-1" Card_id="54"/>
+          <Cardinalidades Cardinalidade="2">
+            <Cardinalidade nome="" id="54">
+              <Left Valor="764"/>
+              <Top Valor="384"/>
+              <Width Valor="37"/>
+              <Height Valor="20"/>
+              <Fonte default="0">
+                <FonteNome Valor="Tahoma"/>
+                <FonteTamanho Valor="8"/>
+                <FonteEstilo Valor="[]"/>
+                <FonteCor Valor="0"/>
+              </Fonte>
+              <Dicionario></Dicionario>
+              <Nula Valor="0"/>
+              <Observacao></Observacao>
+              <Futuro></Futuro>
+              <Anexos/>
+              <Cor Valor="15780518"/>
+              <TamAuto Valor="-1"/>
+              <Tipo Valor="0"/>
+              <TextAlin Valor="0"/>
+              <Card Valor="2"/>
+              <Fixa Valor="0"/>
+              <Ligacoes/>
+            </Cardinalidade>
+          </Cardinalidades>
+          <Orientacao Valor="0"/>
+          <Fraca Valor="0"/>
+        </Ligacao>
+        <Ligacao Destino_ID="31">
+          <MostraCardinalidade Valor="-1" Card_id="55"/>
+          <Cardinalidades Cardinalidade="1">
+            <Cardinalidade nome="" id="55">
+              <Left Valor="647"/>
+              <Top Valor="384"/>
+              <Width Valor="37"/>
+              <Height Valor="20"/>
+              <Fonte default="0">
+                <FonteNome Valor="Tahoma"/>
+                <FonteTamanho Valor="8"/>
+                <FonteEstilo Valor="[]"/>
+                <FonteCor Valor="0"/>
+              </Fonte>
+              <Dicionario></Dicionario>
+              <Nula Valor="0"/>
+              <Observacao></Observacao>
+              <Futuro></Futuro>
+              <Anexos/>
+              <Cor Valor="15780518"/>
+              <TamAuto Valor="-1"/>
+              <Tipo Valor="0"/>
+              <TextAlin Valor="0"/>
+              <Card Valor="1"/>
               <Fixa Valor="0"/>
               <Ligacoes/>
             </Cardinalidade>
