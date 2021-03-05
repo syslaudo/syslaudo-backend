@@ -52,6 +52,12 @@ export const Button = styled.button<{ primary?: boolean }>`
     color: ${colors.componentBackground};
     border-color: ${colors.primaryHover};
   }
+
+  :focus {
+    outline: none;
+    border: 1px solid ${colors.primary};
+    box-shadow: 0 0 0 2px ${colors.primaryShadow};
+  }
 `;
 
 export const Input = styled.input`
@@ -134,3 +140,25 @@ export function RadioButton(props: any) {
     </Radio>
   );
 }
+
+export const MultilineInput = styled.textarea`
+  padding: 0.6rem;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  border: 1px solid ${colors.text};
+  background: ${colors.componentBackground};
+  border-radius: 5px;
+  width: calc(100% - 1.2rem);
+  margin-bottom: 0.5em;
+  height: 10rem;
+
+  :disabled {
+    background: ${colors.hover};
+  }
+
+  :focus {
+    outline: none;
+    border: 1px solid ${colors.primary};
+    box-shadow: 0 0 0 2px ${colors.primaryShadow};
+  }
+`;

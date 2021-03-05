@@ -3,12 +3,12 @@ import * as colors from '../../style/colors';
 
 export const StyledBody = styled.div`
   background: ${colors.componentBackground};
-  width: 100vw;
+
   .container {
     max-width: 80rem;
     margin: 0 auto;
     padding: 3rem;
-    min-height: calc(100vh - 31.1rem);
+    min-height: calc(100vh - 30.5rem);
 
     @media screen and (max-width: 1000px) {
       padding: 3rem 1.5rem;

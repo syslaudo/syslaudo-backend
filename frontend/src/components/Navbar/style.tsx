@@ -4,8 +4,6 @@ import * as colors from '../../style/colors';
 export const StyledDesktopNavbar = styled.nav`
   background: ${colors.componentBackground};
   border-bottom: 1px solid ${colors.hover};
-  width: 100vw;
-
 
   .container {
     display: flex;
@@ -64,6 +62,24 @@ export const StyledDesktopNavbar = styled.nav`
     transition: 200ms;
   }
 
+  .itemSingle {
+    position: relative;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: ${colors.text};
+    background: ${colors.background};
+    text-decoration: none;
+    transition: 200ms;
+
+    :hover {
+      color: ${colors.primary};
+      font-weight: bold;
+    }
+  }
+
   .subitem:hover {
     background-color: ${colors.primary};
     color: ${colors.background};
@@ -109,9 +125,16 @@ export const HamburguerButton = styled.button`
   padding: 0.5rem;
   background: none;
   border: none;
+  border-radius:5px;
 
   @media screen and (max-width: 1000px) {
     display: block;
+  }
+
+  :focus {
+    outline: none;
+    border: 1px solid ${colors.primary};
+    box-shadow: 0 0 0 2px ${colors.primaryShadow};
   }
 `;
 

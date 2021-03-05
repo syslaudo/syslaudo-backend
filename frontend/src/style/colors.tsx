@@ -7,4 +7,4 @@ export const text = '#444';
 export const darkBackground = '#191919';
 export const lightText = '#bababa';
 export const shadow = 'rgba(0, 0, 0, 0.05)';
-export const hover = '#ddd';
+export const hover = '#e0e0e0';

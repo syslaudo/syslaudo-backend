@@ -9,9 +9,6 @@ const Profile = () => {
           </span>
         </div>
         <ul className="submenu">
-          <a className="subitem" href="/perfil">
-            Seu Perfil
-          </a>
           <a className="subitem" href="/configuracoes">
             Configurações
           </a>

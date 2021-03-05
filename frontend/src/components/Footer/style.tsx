@@ -26,6 +26,7 @@ export const StyledFooter = styled.div`
     th {
       font-weight: bold;
       text-transform: uppercase;
+
     }
 
     th:first-child {
@@ -37,11 +38,11 @@ export const StyledFooter = styled.div`
     }
 
     th {
-      padding: 0 2rem 1rem 2rem;
+      padding: 0 1rem 1rem 1rem;
     }
 
     td {
-      padding: 0.3rem 2rem;
+      padding: 0.3rem 1rem;
     }
 
     a {

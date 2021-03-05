@@ -60,19 +60,15 @@ export default function DoctorForm() {
         </RadioGroup>
       </InputGroup>
 
-      <div className="inputResidente">
-        <InputGroup>
+        <InputGroup className="inputResidente">
           <Label htmlFor="data-residencia">Data de Início da Residência</Label>
           <Input type="date" id="data-residencia" />
         </InputGroup>
-      </div>
 
-      <div className="inputProfessor">
-        <InputGroup>
+        <InputGroup className="inputProfessor">
           <Label htmlFor="titulacao">Titulação</Label>
           <Input id="titulacao" />
         </InputGroup>
-      </div>
 
       <ButtonGroup>
         <Button primary>Enviar</Button>
