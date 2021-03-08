@@ -2,20 +2,20 @@ import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
 export const StyledBody = styled.div`
-  background: ${colors.componentBackground};
+  background: ${colors.background};
 
   .container {
     max-width: 80rem;
     margin: 0 auto;
     padding: 3rem;
-    min-height: calc(100vh - 30.5rem);
+    min-height: calc(100vh - 31rem);
 
     @media screen and (max-width: 1000px) {
       padding: 3rem 1.5rem;
     }
   }
 
-  img {
+  img, .svgImg {
     max-width: 80vw;
   }
 
@@ -41,7 +41,7 @@ export const StyledBody = styled.div`
   .homeContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap:1rem;
+    grid-column-gap: 1rem;
 
     div {
       margin-left: 1rem;

@@ -5,7 +5,7 @@ import {
   Input,
   InputGroup,
   Label,
-  MultilineInput,
+  MultilineInput
 } from './FormElements';
 
 export default function ExamCreateForm() {
@@ -13,12 +13,12 @@ export default function ExamCreateForm() {
     <Form>
       <InputGroup>
         <Label htmlFor="nome">Nome do Exame</Label>
-        <Input id="nome"/>
+        <Input id="nome" />
       </InputGroup>
 
       <InputGroup>
         <Label htmlFor="recomendações">Recomendações</Label>
-        <MultilineInput id="recomendações"/>
+        <MultilineInput id="recomendações" />
       </InputGroup>
 
       <ButtonGroup>

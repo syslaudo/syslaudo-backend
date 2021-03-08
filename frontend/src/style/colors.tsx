@@ -1,7 +1,6 @@
 export const primary = '#0190ab';
 export const primaryShadow = 'rgba(1, 143, 171, 0.5)';
 export const primaryHover = '#017b94';
-export const componentBackground = '#f2f3f5';
 export const background = '#f2f3f5';
 export const text = '#444';
 export const darkBackground = '#191919';

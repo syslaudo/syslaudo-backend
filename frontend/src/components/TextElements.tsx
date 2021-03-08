@@ -21,4 +21,3 @@ export function Title(props: any) {
     </StyledTitle>
   );
 }
- 

@@ -35,10 +35,9 @@ export const Button = styled.button<{ primary?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) =>
-    props.primary ? colors.componentBackground : colors.text};
+  color: ${(props) => (props.primary ? colors.background : colors.text)};
   background: ${(props) =>
-    props.primary ? colors.primary : colors.componentBackground};
+    props.primary ? colors.primary : colors.background};
   transition: 0.1s;
   border-radius: 5px;
   border-width: 1px;
@@ -49,7 +48,7 @@ export const Button = styled.button<{ primary?: boolean }>`
 
   :hover {
     background: ${colors.primaryHover};
-    color: ${colors.componentBackground};
+    color: ${colors.background};
     border-color: ${colors.primaryHover};
   }
 
@@ -62,10 +61,11 @@ export const Button = styled.button<{ primary?: boolean }>`
 
 export const Input = styled.input`
   padding: 0.6rem;
-  font-family: 'Montserrat';
+  color: ${colors.text};
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   border: 1px solid ${colors.text};
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border-radius: 5px;
   width: calc(100% - 1.2rem);
   margin-bottom: 0.5em;
@@ -143,10 +143,11 @@ export function RadioButton(props: any) {
 
 export const MultilineInput = styled.textarea`
   padding: 0.6rem;
-  font-family: 'Montserrat';
+  color: ${colors.text};
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   border: 1px solid ${colors.text};
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border-radius: 5px;
   width: calc(100% - 1.2rem);
   margin-bottom: 0.5em;

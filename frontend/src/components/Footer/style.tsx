@@ -26,7 +26,6 @@ export const StyledFooter = styled.div`
     th {
       font-weight: bold;
       text-transform: uppercase;
-
     }
 
     th:first-child {
@@ -46,11 +45,11 @@ export const StyledFooter = styled.div`
     }
 
     a {
-    transition: 200ms;
+      transition: 200ms;
 
-    :hover {
-      color: ${colors.primaryHover};
+      :hover {
+        color: ${colors.primaryHover};
+      }
     }
-  }
   }
 `;

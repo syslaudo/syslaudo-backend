@@ -6,7 +6,7 @@ import {
   InputGroup,
   Label,
   RadioButton,
-  RadioGroup,
+  RadioGroup
 } from './FormElements';
 
 export default function PacientForm() {

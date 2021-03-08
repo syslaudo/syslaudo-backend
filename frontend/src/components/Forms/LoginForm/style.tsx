@@ -5,7 +5,7 @@ import { Form } from '../FormElements';
 export const LoginFormContainer = styled(Form)`
   margin-top: 5vh;
   width: 30%;
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border: 1px solid ${colors.hover};
   border-left: 5px solid ${colors.primary};
   padding: 3rem 5rem;

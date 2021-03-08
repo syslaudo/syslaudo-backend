@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
 export const StyledDesktopNavbar = styled.nav`
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border-bottom: 1px solid ${colors.hover};
 
   .container {
@@ -36,7 +36,7 @@ export const StyledDesktopNavbar = styled.nav`
     font-size: 1rem;
     padding: 0 0.5rem;
     color: ${colors.text};
-    background: ${colors.componentBackground};
+    background: ${colors.background};
     transition: 200ms;
     background: transparent;
   }
@@ -105,7 +105,7 @@ export const StyledDesktopNavbar = styled.nav`
     color: ${colors.primary};
   }
 
-  .logo {
+  .svgImg {
     height: 3rem;
     margin: 0.9rem 0.5rem;
   }
@@ -125,7 +125,7 @@ export const HamburguerButton = styled.button`
   padding: 0.5rem;
   background: none;
   border: none;
-  border-radius:5px;
+  border-radius: 5px;
 
   @media screen and (max-width: 1000px) {
     display: block;
@@ -153,7 +153,7 @@ export const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     font-size: 1rem;
     border-bottom: 1px solid ${colors.hover};
     padding: 1vh 0;
-    background: ${colors.componentBackground};
+    background: ${colors.background};
   }
 
   .itemTitle {
