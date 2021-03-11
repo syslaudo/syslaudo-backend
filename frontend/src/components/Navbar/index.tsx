@@ -3,22 +3,16 @@ import DesktopNavbar from './DesktopNavbar';
 import MobileNavbar from './MobileNavbar';
 
 export default function Navbar() {
-  const [displayMobile, setDisplayMobile] = useState(
-    false
-  );
+  const [displayMobile, setDisplayMobile] = useState(false);
 
   const toggleMobile = () => {
-    if (displayMobile) {
-      setDisplayMobile(false);
-    } else {
-      setDisplayMobile(true);
-    }
+    displayMobile ? setDisplayMobile(false) : setDisplayMobile(true);
   };
 
-    return (
-      <div>
-        <DesktopNavbar toggleMobile={toggleMobile}/>
-        <MobileNavbar displayMobile={displayMobile} />
-      </div>
-    );
+  return (
+    <div>
+      <DesktopNavbar toggleMobile={toggleMobile} />
+      <MobileNavbar displayMobile={displayMobile} />
+    </div>
+  );
 }

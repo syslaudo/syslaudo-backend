@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${colors.darkBackground};
     color: ${colors.text};
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
   }
 
@@ -20,5 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   p {
     margin-top: 1rem;
     line-height: 1.5rem;
+  }
+
+  .svgImg {
+    fill: ${colors.primary};
   }
 `;

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Profile = () => {
   return (
     <ul className="profile">
@@ -9,12 +11,9 @@ const Profile = () => {
           </span>
         </div>
         <ul className="submenu">
-          <a className="subitem" href="/perfil">
-            Seu Perfil
-          </a>
-          <a className="subitem" href="/configuracoes">
+          <Link className="subitem" to="/configuracoes">
             Configurações
-          </a>
+          </Link>
           <a className="subitem" href="/">
             Sair
           </a>

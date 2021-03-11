@@ -7,7 +7,7 @@ export const Card = styled.div`
   margin-bottom: 2rem;
   border: 1px solid ${colors.hover};
   border-left: 5px solid ${colors.primary};
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border-radius: 10px;
   box-shadow: 0 0 20px ${colors.shadow};
   min-height: 3rem;

@@ -4,13 +4,15 @@ const NavLinks = () => {
   return (
     <ul className="navlinks">
       <li className="item">
-        <Link className="itemTitle" to="/">
+        <Link className="itemSingle" to="/inicio">
           INÍCIO
         </Link>
       </li>
 
       <li className="item">
-        <span className="itemTitle">MÉDICOS &nbsp;<i className="fas fa-caret-down"></i></span>
+        <span className="itemTitle">
+          MÉDICOS &nbsp;<i className="fas fa-caret-down"></i>
+        </span>
         <ul className="submenu">
           <Link className="subitem" to="/cadastrar-medico">
             Cadastrar
@@ -22,7 +24,9 @@ const NavLinks = () => {
       </li>
 
       <li className="item">
-        <span className="itemTitle">PACIENTES &nbsp; <i className="fas fa-caret-down"></i></span>
+        <span className="itemTitle">
+          PACIENTES &nbsp; <i className="fas fa-caret-down"></i>
+        </span>
         <ul className="submenu">
           <Link className="subitem" to="/cadastrar-paciente">
             Cadastrar
@@ -34,8 +38,13 @@ const NavLinks = () => {
       </li>
 
       <li className="item">
-        <span className="itemTitle">EXAMES &nbsp; <i className="fas fa-caret-down"></i></span>
+        <span className="itemTitle">
+          EXAMES &nbsp; <i className="fas fa-caret-down"></i>
+        </span>
         <ul className="submenu">
+          <Link className="subitem" to="/cadastrar-exame">
+            Cadastrar
+          </Link>
           <Link className="subitem" to="/solicitar-exame">
             Solicitar
           </Link>

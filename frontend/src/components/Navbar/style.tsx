@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import * as colors from '../../style/colors';
 
 export const StyledDesktopNavbar = styled.nav`
-  background: ${colors.componentBackground};
+  background: ${colors.background};
   border-bottom: 1px solid ${colors.hover};
-  width: 100vw;
-
 
   .container {
     display: flex;
@@ -38,7 +36,7 @@ export const StyledDesktopNavbar = styled.nav`
     font-size: 1rem;
     padding: 0 0.5rem;
     color: ${colors.text};
-    background: ${colors.componentBackground};
+    background: ${colors.background};
     transition: 200ms;
     background: transparent;
   }
@@ -62,6 +60,24 @@ export const StyledDesktopNavbar = styled.nav`
     background: ${colors.background};
     text-decoration: none;
     transition: 200ms;
+  }
+
+  .itemSingle {
+    position: relative;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: ${colors.text};
+    background: ${colors.background};
+    text-decoration: none;
+    transition: 200ms;
+
+    :hover {
+      color: ${colors.primary};
+      font-weight: bold;
+    }
   }
 
   .subitem:hover {
@@ -89,7 +105,7 @@ export const StyledDesktopNavbar = styled.nav`
     color: ${colors.primary};
   }
 
-  .logo {
+  .svgImg {
     height: 3rem;
     margin: 0.9rem 0.5rem;
   }
@@ -109,9 +125,16 @@ export const HamburguerButton = styled.button`
   padding: 0.5rem;
   background: none;
   border: none;
+  border-radius: 5px;
 
   @media screen and (max-width: 1000px) {
     display: block;
+  }
+
+  :focus {
+    outline: none;
+    border: 1px solid ${colors.primary};
+    box-shadow: 0 0 0 2px ${colors.primaryShadow};
   }
 `;
 
@@ -130,7 +153,7 @@ export const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     font-size: 1rem;
     border-bottom: 1px solid ${colors.hover};
     padding: 1vh 0;
-    background: ${colors.componentBackground};
+    background: ${colors.background};
   }
 
   .itemTitle {
@@ -151,7 +174,7 @@ export const StyledMobileNavbar = styled.nav<{ displayMobile: boolean }>`
     display: none;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1001px) {
     display: none;
   }
 `;

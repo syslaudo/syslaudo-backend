@@ -1,19 +1,19 @@
 import Body from '../components/Body';
 import Footer from '../components/Footer';
-import DoctorForm from '../components/Forms/DoctorForm';
+import ExameCreateForm from '../components/Forms/ExamCreateForm';
 import Navbar from '../components/Navbar';
 import { Title } from '../components/TextElements';
 
-
-export default function CadastrarMedico() {
+export default function CadastrarExame() {
   return (
-    <div className="CadastrarMedico">
+    <div className="CadastrarExame">
       <Navbar />
       <Body>
-        <Title>Cadastro de Médico</Title>
-        <DoctorForm />
+        <Title>Cadastro de Exames</Title>
+        <ExameCreateForm />
       </Body>
       <Footer />
     </div>
   );
 }
+  

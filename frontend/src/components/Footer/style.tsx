@@ -37,19 +37,19 @@ export const StyledFooter = styled.div`
     }
 
     th {
-      padding: 0 2rem 1rem 2rem;
+      padding: 0 1rem 1rem 1rem;
     }
 
     td {
-      padding: 0.3rem 2rem;
+      padding: 0.3rem 1rem;
     }
 
     a {
-    transition: 200ms;
+      transition: 200ms;
 
-    :hover {
-      color: ${colors.primaryHover};
+      :hover {
+        color: ${colors.primaryHover};
+      }
     }
-  }
   }
 `;
