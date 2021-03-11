@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <MER>
 	<Informacoes>
-		<Posicao Left="0" Top="592"/>
-		<TotalItens Valor="89"/>
+		<Posicao Left="0" Top="494"/>
+		<TotalItens Valor="87"/>
 		<Tipo Valor="LÓGICO"/>
 		<Versao Valor="2.0.0"/>
 		<Autor Valor=""/>
@@ -146,10 +146,10 @@
       </Campos>
     </Tabela>
     <Tabela nome="Pacientes" id="20">
-      <Left Valor="89"/>
-      <Top Valor="673"/>
-      <Width Valor="180"/>
-      <Height Valor="172"/>
+      <Left Valor="78"/>
+      <Top Valor="688"/>
+      <Width Valor="185"/>
+      <Height Valor="143"/>
       <Fonte default="0">
         <FonteNome Valor="Tahoma"/>
         <FonteTamanho Valor="8"/>
@@ -166,9 +166,9 @@
       <cOrdem Valor="0"/>
       <Campos>
         <Campo nome="id_paciente" id="24">
-          <Left Valor="89"/>
-          <Top Valor="692"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="707"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -192,9 +192,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="nome_paciente" id="25">
-          <Left Valor="89"/>
-          <Top Valor="710"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="725"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -218,9 +218,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="sexo_paciente" id="26">
-          <Left Valor="89"/>
-          <Top Valor="728"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="743"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -244,9 +244,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="cor_paciente" id="27">
-          <Left Valor="89"/>
-          <Top Valor="746"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="761"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -270,9 +270,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="datnasc_paciente" id="29">
-          <Left Valor="89"/>
-          <Top Valor="764"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="779"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -296,9 +296,9 @@
           <OnDelete Valor="0"/>
         </Campo>
         <Campo nome="aguarda_realizacao" id="49">
-          <Left Valor="89"/>
-          <Top Valor="782"/>
-          <Width Valor="178"/>
+          <Left Valor="78"/>
+          <Top Valor="797"/>
+          <Width Valor="183"/>
           <Height Valor="19"/>
           <Fonte default="0">
             <FonteNome Valor="Tahoma"/>
@@ -315,50 +315,6 @@
           <IsKey Valor="0"/>
           <IsFKey Valor="0"/>
           <Tipo Valor="boolean"/>
-          <TabOrigem Valor="0"/>
-          <CampoOrigem Valor="0"/>
-          <Complemento Valor=""/>
-          <OnUpdate Valor="0"/>
-          <OnDelete Valor="0"/>
-        </Campo>
-        <Campo nome="Chave Estrangeira" id="42">
-          <Left Valor="89"/>
-          <Top Valor="800"/>
-          <Width Valor="178"/>
-          <Height Valor="19"/>
-          <Fonte default="0">
-            <FonteNome Valor="Tahoma"/>
-            <FonteTamanho Valor="8"/>
-            <FonteEstilo Valor="[]"/>
-            <FonteCor Valor="0"/>
-          </Fonte>
-          <Dicionario></Dicionario>
-          <Nula Valor="-1"/>
-          <Observacao></Observacao>
-          <Futuro></Futuro>
-          <Anexos/>
-          <ApenasSeparador Valor="-1"/>
-        </Campo>
-        <Campo nome="id_paciente" id="43">
-          <Left Valor="89"/>
-          <Top Valor="818"/>
-          <Width Valor="178"/>
-          <Height Valor="19"/>
-          <Fonte default="0">
-            <FonteNome Valor="Tahoma"/>
-            <FonteTamanho Valor="8"/>
-            <FonteEstilo Valor="[]"/>
-            <FonteCor Valor="0"/>
-          </Fonte>
-          <Dicionario></Dicionario>
-          <Nula Valor="-1"/>
-          <Observacao></Observacao>
-          <Futuro></Futuro>
-          <Anexos/>
-          <ApenasSeparador Valor="0"/>
-          <IsKey Valor="0"/>
-          <IsFKey Valor="-1"/>
-          <Tipo Valor="VARCHAR(128)"/>
           <TabOrigem Valor="0"/>
           <CampoOrigem Valor="0"/>
           <Complemento Valor=""/>
@@ -1721,7 +1677,7 @@
           <MostraCardinalidade Valor="-1" Card_id="37"/>
           <Cardinalidades Cardinalidade="1">
             <Cardinalidade nome="" id="37">
-              <Left Valor="269"/>
+              <Left Valor="263"/>
               <Top Valor="744"/>
               <Width Valor="37"/>
               <Height Valor="20"/>
