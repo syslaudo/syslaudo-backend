@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/nataliafonseca/abfln/issues"
   },
-  "homepage": "https://github.com/nataliafonseca/abfln#readme"
+  "homepage": "https://github.com/nataliafonseca/abfln#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  }
 }
