@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getRepository } from 'typeorm';
 import * as yup from 'yup';
+
 import Usuario from '../models/Usuario';
 
 const schemaUsuario = yup.object().shape({
@@ -11,6 +12,10 @@ const schemaUsuario = yup.object().shape({
 });
 
 class UsuarioController {
+  index(req: Request, res: Response) {
+    return res.send({ userID: req.userId });
+  }
+  
   async create(req: Request, res: Response) {
     try {
       const repository = getRepository(Usuario);
@@ -28,9 +33,10 @@ class UsuarioController {
       const usuario = repository.create({
         nome_usuario, email_usuario, senha, funcao
       });
+      await repository.save(usuario);
 
       return res.json(usuario);
-
+      
     } catch (error) {
       if(error instanceof yup.ValidationError) {
         return res.status(400).json({ message: error.message });
