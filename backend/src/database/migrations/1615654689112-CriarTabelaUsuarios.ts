@@ -35,6 +35,11 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
                     },
 
                     {
+                        name: 'funcao',
+                        type: 'varchar',
+                    },
+
+                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()',

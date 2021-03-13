@@ -1,10 +1,34 @@
-import { } from 'typeorm';
-import { v4 } from 'uuid';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { v4 as uuid } from 'uuid';
 
+@Entity('usuarios')
 class Usuario {
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  nome: string;
+  @Column()
+  nome_usuario: string;
+
+  @Column()
+  email_usuario: string;
+
+  @Column()
+  senha: string;
+
+  @Column()
+  funcao:string;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id) {
+      this.id = uuid();
+    }
+  }
 
 }
 
