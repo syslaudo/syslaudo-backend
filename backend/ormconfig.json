@@ -5,8 +5,8 @@
   "username": "abfln",
   "password": "j*oi7Eh$3^NdoBRe!G^8",
   "database": "abfln",
-  "synchronize": true,
-  "logging": false,
+  "synchronize": false,
+  "logging": true,
   "migrations": ["./src/database/migrations/**.ts"],
   "entities": ["./src/models/**.ts"],
   "cli": {
