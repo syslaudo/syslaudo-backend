@@ -1,47 +1,39 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
+export class criarTabelaProfessores1615674665237 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
 
         await queryRunner.createTable(
             new Table({
-                name: 'medicos',
+                name: 'professores',
                 columns: [
                     {
-                        name: 'id_medico',
+                        name: 'id_professor',
                         type: 'uuid',
                         isPrimary: true,
-                        isUnique: true,
                         generationStrategy: 'uuid',
                         default: 'uuid_generate_v4()'
                     },
                     {
-                        name: 'crm',
+                        name: 'titulacao',
                         type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: 'ativo',
-                        type: 'boolean',
-                        isNullable: false,
-                        default: true
-                    },
-                    {
-                        name: 'id',
+                        name: 'id_medico',
                         type: 'uuid',
-                        isPrimary: true,
                         generationStrategy: 'uuid',
-                        default: 'uuid_generate_v4()',
+                        default: 'uuid_generate_v4()'
                     }
                 ],
                 foreignKeys: [
                     {
-                        name: 'fk_id_usuario',
-                        referencedTableName: 'usuarios',
-                        referencedColumnNames: ['id'],
-                        columnNames: ['id'],
+                        name: 'fk_id_professor_medico',
+                        referencedTableName: 'medicos',
+                        referencedColumnNames: ['id_medico'],
+                        columnNames: ['id_professor'],
                         onDelete: 'CASCADE',
                         onUpdate: 'CASCADE'
                     }
@@ -51,8 +43,6 @@ export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('medicos');
-        await queryRunner.query('DROP EXTENSION "uuid-ossp"');
     }
 
 }
