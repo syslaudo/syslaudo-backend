@@ -5,7 +5,7 @@ import Usuario from './Usuario';
 @Entity('medicos')
 class Medico {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id_medico: string;
 
     @Column()
     crm: string;
@@ -22,10 +22,12 @@ class Medico {
   
     @UpdateDateColumn()
     updated_at: Date;
-    
+
     constructor() {
-        if(!this.id) {
-          this.id = uuid();
+        if(!this.id_medico) {
+          this.id_medico = uuid();
         }
       }
 }
+
+export default Medico;
