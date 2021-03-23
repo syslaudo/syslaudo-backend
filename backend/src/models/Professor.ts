@@ -11,7 +11,10 @@ class Professor {
     titulacao: string
 
     @OneToOne(() => Medico)
-    @JoinColumn()
+    @JoinColumn({
+      name: "id_medico",
+      referencedColumnName: "id_medico"
+    })
     medico: Medico
 
     @CreateDateColumn()

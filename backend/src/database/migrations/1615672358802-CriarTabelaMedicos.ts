@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableUnique } from "typeorm";
 
 export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
 
@@ -13,7 +13,6 @@ export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
                         name: 'id_medico',
                         type: 'uuid',
                         isPrimary: true,
-                        isUnique: true,
                         generationStrategy: 'uuid',
                         default: 'uuid_generate_v4()'
                     },
