@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, OneToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Usuario from './Usuario';
+import Pedido from './Pedido';
 
 @Entity('medicos')
 class Medico {
@@ -16,6 +17,8 @@ class Medico {
     @OneToOne(() => Usuario)
     @JoinColumn()
     usuario: Usuario
+
+    @OneToMany(type => Pedido, pedido => pedido.medico) pedidos: Pedido[];
 
     @CreateDateColumn()
     created_at: Date;
