@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey, TableUnique } from "typeorm";
 
-export class criarTabelaProfessores1615674665237 implements MigrationInterface {
+export class CriarTabelaProfessores1615674665237 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');

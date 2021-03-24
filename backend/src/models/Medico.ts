@@ -5,32 +5,26 @@ import Pedido from './Pedido';
 
 @Entity('medicos')
 class Medico {
-    @PrimaryGeneratedColumn('uuid')
-    id_medico: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_medico: string;
 
-    @Column()
-    crm: string;
+  @Column()
+  crm: string;
 
-    @Column()
-    ativo: boolean;
+  @Column()
+  ativo: boolean;
 
-    @OneToOne(() => Usuario)
-    @JoinColumn()
-    usuario: Usuario
-
-    @OneToMany(type => Pedido, pedido => pedido.medico) pedidos: Pedido[];
-
-    @CreateDateColumn()
-    created_at: Date;
+  @OneToOne(() => Usuario)
+  @JoinColumn()
+  usuario: Usuario
   
-    @UpdateDateColumn()
-    updated_at: Date;
+  @OneToMany(type => Pedido, pedido => pedido.medico) pedidos: Pedido[];
 
-    constructor() {
-        if(!this.id_medico) {
-          this.id_medico = uuid();
-        }
-      }
+  constructor() {
+    if(!this.id_medico) {
+      this.id_medico = uuid();
+    }
+  }
 }
 
 export default Medico;

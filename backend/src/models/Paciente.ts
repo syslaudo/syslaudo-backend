@@ -4,37 +4,37 @@ import Pedido from './Pedido';
 
 @Entity('pacientes')
 class Paciente {
-    @PrimaryGeneratedColumn('uuid')
-    id_paciente: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_paciente: string;
 
-    @Column()
-    nome_paciente: string;
+  @Column()
+  nome_paciente: string;
 
-    @Column()
-    sexo_paciente: string;
+  @Column()
+  sexo_paciente: string;
 
-    @Column()
-    cor_paciente: string;
+  @Column()
+  cor_paciente: string;
 
-    @Column()
-    datnasc_paciente: Date;
+  @Column()
+  datnasc_paciente: Date;
 
-    @Column()
-    aguarda_realizacao: boolean;
+  @Column()
+  aguarda_realizacao: boolean;
 
-    @OneToMany(type => Pedido, pedido => pedido.paciente) pedidos: Pedido[];
+  @OneToMany(type => Pedido, pedido => pedido.paciente) pedidos: Pedido[];
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    constructor() {
-        if(!this.id_paciente) {
-          this.id_paciente = uuid();
-        }
-      }
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id_paciente) {
+      this.id_paciente = uuid();
+    }
+  }
 }
 
 export default Paciente;

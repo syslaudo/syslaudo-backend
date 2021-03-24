@@ -4,41 +4,41 @@ import Pedido from './Pedido';
 
 @Entity('exames')
 class Exame {
-    @PrimaryGeneratedColumn('uuid')
-    id_exame: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_exame: string;
 
-    @Column()
-    data_realizacao: Date;
+  @Column()
+  data_realizacao: Date;
 
-    @Column()
-    hora_realizacao: Date;
+  @Column()
+  hora_realizacao: Date;
 
-    @Column()
-    laudo_medico: string;
+  @Column()
+  laudo_medico: string;
 
-    @Column()
-    tipo_exame: string;
+  @Column()
+  tipo_exame: string;
 
-    @Column()
-    imagem_exame: string;
+  @Column()
+  imagem_exame: string;
 
-    @Column()
-    laudo_aprovado: boolean;
+  @Column()
+  laudo_aprovado: boolean;
 
-    @OneToOne(type => Pedido) @JoinColumn() 
-    pedido: Pedido;
+  @OneToOne(type => Pedido) @JoinColumn() 
+  pedido: Pedido;
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    constructor() {
-        if(!this.id_exame) {
-          this.id_exame = uuid();
-        }
-      }
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id_exame) {
+      this.id_exame = uuid();
+    }
+  }
 }
 
 export default Exame;

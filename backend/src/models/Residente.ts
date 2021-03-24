@@ -4,30 +4,30 @@ import Medico from './Medico';
 
 @Entity('residentes')
 class Residente {
-    @PrimaryGeneratedColumn('uuid')
-    id_residente: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_residente: string;
 
-    @Column()
-    ano_residencia: Number;
+  @Column()
+  ano_residencia: Number;
 
-    @OneToOne(() => Medico)
-    @JoinColumn({
-      name: "id_medico",
-      referencedColumnName: "id_medico"
-    })
-    medico: Medico
+  @OneToOne(() => Medico)
+  @JoinColumn({
+    name: "id_medico",
+    referencedColumnName: "id_medico"
+  })
+  medico: Medico
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    constructor() {
-        if(!this.id_residente) {
-          this.id_residente = uuid();
-        }
-      }
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id_residente) {
+      this.id_residente = uuid();
+    }
+  }
 }
 
 export default Residente;

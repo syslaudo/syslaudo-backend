@@ -4,25 +4,25 @@ import Pedido from './Pedido';
 
 @Entity('recomendacoes')
 class Recomendacao {
-    @PrimaryGeneratedColumn('uuid')
-    id_recomendacao: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_recomendacao: string;
 
-    @Column()
-    recomendacao_escrita: string;
+  @Column()
+  recomendacao_escrita: string;
 
-    @ManyToOne(type => Pedido, pedido => pedido.recomendacoes) pedido: Pedido;
+  @ManyToOne(type => Pedido, pedido => pedido.recomendacoes) pedido: Pedido;
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    constructor() {
-        if(!this.id_recomendacao) {
-          this.id_recomendacao = uuid();
-        }
-      }
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id_recomendacao) {
+      this.id_recomendacao = uuid();
+    }
+  }
 }
 
 export default Recomendacao;

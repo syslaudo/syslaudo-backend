@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getRepository, useContainer } from 'typeorm';
+import { getRepository } from 'typeorm';
 import * as yup from 'yup';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -11,13 +11,13 @@ const schemaUser = yup.object().shape({
   senha: yup.string().min(6).required("Senha é requerida!"),
 });
 
-interface User {
-  id: string | undefined;
-  nome_usuario: string | undefined;
-  email_usuario: string | undefined; 
-  senha: string | undefined;
-  funcao: string | undefined;
-}
+// interface User {
+//   id: string | undefined;
+//   nome_usuario: string | undefined;
+//   email_usuario: string | undefined; 
+//   senha: string | undefined;
+//   funcao: string | undefined;
+// }
 
 class UsuarioController {
   async authenticate(req: Request, res: Response) {

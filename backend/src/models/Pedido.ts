@@ -7,38 +7,38 @@ import Recomendacao from './Recomendacao';
 
 @Entity('pedidos')
 class Pedido {
-    @PrimaryGeneratedColumn('uuid')
-    id_pedido: string;
+  @PrimaryGeneratedColumn('uuid')
+  id_pedido: string;
 
-    @Column()
-    nome_exame: string;
+  @Column()
+  nome_exame: string;
 
-    @Column()
-    data_prevista: Date;
+  @Column()
+  data_prevista: Date;
 
-    @Column()
-    hipotese_diagnostico: string;
+  @Column()
+  hipotese_diagnostico: string;
 
-    @Column()
-    aguarda_realizacao: boolean;
+  @Column()
+  aguarda_realizacao: boolean;
 
-    @ManyToOne(type => Medico, medico => medico.pedidos) medico: Medico;
+  @ManyToOne(type => Medico, medico => medico.pedidos) medico: Medico;
 
-    @ManyToOne(type => Paciente, paciente => paciente.pedidos) paciente: Paciente;
+  @ManyToOne(type => Paciente, paciente => paciente.pedidos) paciente: Paciente;
 
-    @OneToMany(type => Recomendacao, recomendacao => recomendacao.pedido) recomendacoes: Recomendacao[];
+  @OneToMany(type => Recomendacao, recomendacao => recomendacao.pedido) recomendacoes: Recomendacao[];
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    constructor() {
-        if(!this.id_pedido) {
-          this.id_pedido = uuid();
-        }
-      }
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if(!this.id_pedido) {
+      this.id_pedido = uuid();
+    }
+  }
 }
 
 export default Pedido;

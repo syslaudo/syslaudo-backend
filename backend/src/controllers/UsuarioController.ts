@@ -21,7 +21,6 @@ class UsuarioController {
       const repository = getRepository(Usuario);
 
       const { nome_usuario, email_usuario, senha, funcao } = req.body;
-
       await schemaUsuario.validate({ nome_usuario, email_usuario, senha, funcao });
 
       const userExists = await repository.findOne({ where: { email_usuario } });
