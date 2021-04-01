@@ -7,7 +7,7 @@ import medicoRoutes from './medico.routes';
 const router = Router();
 
 // ROTA PARA CRIAR, LISTAR E APAGAR USÚARIO;
-router.use('/users', usuarioRoutes)
+router.use('/usuario', usuarioRoutes)
 
 // ROTA PARA INICIAR SESSÃO;
 router.use('/session', sessionRoutes)
