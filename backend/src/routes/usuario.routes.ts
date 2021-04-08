@@ -2,9 +2,8 @@ import { Router } from 'express';
 import authMiddleware from '../middlewares/authMiddleware';
 import UsuarioController from '../controllers/UsuarioController';
 
-const usuarioRouter = Router();
-
 const usuarioController = new UsuarioController();
+const usuarioRouter = Router();
 
 usuarioRouter.post('/criar', usuarioController.criarUsuario);
 usuarioRouter.use(authMiddleware);

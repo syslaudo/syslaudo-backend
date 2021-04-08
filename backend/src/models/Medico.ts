@@ -5,8 +5,6 @@ import {
   OneToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Usuario from './Usuario';

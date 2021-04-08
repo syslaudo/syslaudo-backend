@@ -11,6 +11,9 @@ const schemaUsuario = yup.object().shape({
     .email('Insira um email valido! Ex:exemple@exemple.com')
     .required('Email é requerido!'),
   senha: yup.string().min(6).required('Senha é requerida!'),
+  confirmar_senha: yup
+    .string()
+    .oneOf([yup.ref('senha'), null], 'As senhas devem corresponder'),
   funcao: yup.string().required('Função é requerida!'),
 });
 
@@ -20,13 +23,20 @@ export default class UsuarioController {
   }
 
   public async criarUsuario(req: Request, res: Response): Promise<Response> {
-    const { nome_usuario, email_usuario, senha, funcao } = req.body;
+    const {
+      nome_usuario,
+      email_usuario,
+      senha,
+      confirmar_senha,
+      funcao,
+    } = req.body;
 
     try {
       await schemaUsuario.validate({
         nome_usuario,
         email_usuario,
         senha,
+        confirmar_senha,
         funcao,
       });
 

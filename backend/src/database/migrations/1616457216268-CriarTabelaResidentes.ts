@@ -20,6 +20,7 @@ export class CriarTabelaResidentes1616457216268 implements MigrationInterface {
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
+
           {
             name: 'ano_residencia',
             type: 'numeric',

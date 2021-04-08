@@ -22,21 +22,25 @@ export class createTablesPedidosExamesRecomendacoesPacientes1616460419513
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
+
           {
             name: 'nome_paciente',
             type: 'varchar',
             isNullable: false,
           },
+
           {
             name: 'sexo_paciente',
             type: 'varchar',
             isNullable: false,
           },
+
           {
             name: 'cor_paciente',
             type: 'varchar',
             isNullable: false,
           },
+
           {
             name: 'datanasc_paciente',
             type: 'timestamp without time zone',

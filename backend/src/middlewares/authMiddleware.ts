@@ -7,11 +7,16 @@ interface TokenPayload {
   exp: number;
 }
 
-export default function authMiddleware(req: Request, res: Response, next: NextFunction) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export default function authMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const { authorization } = req.headers;
 
-  if(!authorization) {
-    return res.status(401).json({ message: 'Lumena não autorizou'});
+  if (!authorization) {
+    return res.status(401).json({ message: 'Lumena não autorizou' });
   }
 
   const token = authorization.replace('Bearer', '').trim();
@@ -23,6 +28,6 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
     req.userId = id;
     return next();
   } catch (error) {
-    return res.status(401).json({ message: 'Lumena não autorizou'});
+    return res.status(401).json({ message: 'Lumena não autorizou' });
   }
 }

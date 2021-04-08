@@ -29,11 +29,13 @@ export class CriarTabelaProfessores1615674665237 implements MigrationInterface {
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
+
           {
             name: 'titulacao',
             type: 'varchar',
             isNullable: false,
           },
+
           {
             name: 'id_medico',
             type: 'uuid',
