@@ -1,4 +1,12 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Pedido from './Pedido';
 
@@ -25,7 +33,8 @@ class Exame {
   @Column()
   laudo_aprovado: boolean;
 
-  @OneToOne(type => Pedido) @JoinColumn() 
+  @OneToOne((type) => Pedido)
+  @JoinColumn()
   pedido: Pedido;
 
   @CreateDateColumn()
@@ -35,7 +44,7 @@ class Exame {
   updated_at: Date;
 
   constructor() {
-    if(!this.id_exame) {
+    if (!this.id_exame) {
       this.id_exame = uuid();
     }
   }

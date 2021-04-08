@@ -1,4 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Exame from './Exame';
 import Medico from './Medico';
@@ -22,11 +32,13 @@ class Pedido {
   @Column()
   aguarda_realizacao: boolean;
 
-  @ManyToOne(type => Medico, medico => medico.pedidos) medico: Medico;
+  @ManyToOne((type) => Medico, (medico) => medico.pedidos) medico: Medico;
 
-  @ManyToOne(type => Paciente, paciente => paciente.pedidos) paciente: Paciente;
+  @ManyToOne((type) => Paciente, (paciente) => paciente.pedidos)
+  paciente: Paciente;
 
-  @OneToMany(type => Recomendacao, recomendacao => recomendacao.pedido) recomendacoes: Recomendacao[];
+  @OneToMany((type) => Recomendacao, (recomendacao) => recomendacao.pedido)
+  recomendacoes: Recomendacao[];
 
   @CreateDateColumn()
   created_at: Date;
@@ -35,7 +47,7 @@ class Pedido {
   updated_at: Date;
 
   constructor() {
-    if(!this.id_pedido) {
+    if (!this.id_pedido) {
       this.id_pedido = uuid();
     }
   }

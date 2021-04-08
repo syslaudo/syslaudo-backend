@@ -1,4 +1,12 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcryptjs';
 
@@ -17,7 +25,7 @@ class Usuario {
   senha: string;
 
   @Column()
-  funcao:string;
+  funcao: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -32,11 +40,10 @@ class Usuario {
   }
 
   constructor() {
-    if(!this.id) {
+    if (!this.id) {
       this.id = uuid();
     }
   }
-
 }
 
 export default Usuario;

@@ -1,4 +1,12 @@
-import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Pedido from './Pedido';
 
@@ -22,7 +30,7 @@ class Paciente {
   @Column()
   aguarda_realizacao: boolean;
 
-  @OneToMany(type => Pedido, pedido => pedido.paciente) pedidos: Pedido[];
+  @OneToMany((type) => Pedido, (pedido) => pedido.paciente) pedidos: Pedido[];
 
   @CreateDateColumn()
   created_at: Date;
@@ -31,7 +39,7 @@ class Paciente {
   updated_at: Date;
 
   constructor() {
-    if(!this.id_paciente) {
+    if (!this.id_paciente) {
       this.id_paciente = uuid();
     }
   }

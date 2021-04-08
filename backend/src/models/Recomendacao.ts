@@ -1,4 +1,11 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Pedido from './Pedido';
 
@@ -10,7 +17,7 @@ class Recomendacao {
   @Column()
   recomendacao_escrita: string;
 
-  @ManyToOne(type => Pedido, pedido => pedido.recomendacoes) pedido: Pedido;
+  @ManyToOne((type) => Pedido, (pedido) => pedido.recomendacoes) pedido: Pedido;
 
   @CreateDateColumn()
   created_at: Date;
@@ -19,7 +26,7 @@ class Recomendacao {
   updated_at: Date;
 
   constructor() {
-    if(!this.id_recomendacao) {
+    if (!this.id_recomendacao) {
       this.id_recomendacao = uuid();
     }
   }

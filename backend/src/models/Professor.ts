@@ -1,4 +1,12 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Medico from './Medico';
 
@@ -8,14 +16,14 @@ class Professor {
   id_professor: string;
 
   @Column()
-  titulacao: string
+  titulacao: string;
 
   @OneToOne(() => Medico)
   @JoinColumn({
-    name: "id_medico",
-    referencedColumnName: "id_medico"
+    name: 'id_medico',
+    referencedColumnName: 'id_medico',
   })
-  medico: Medico
+  medico: Medico;
 
   @CreateDateColumn()
   created_at: Date;
@@ -24,7 +32,7 @@ class Professor {
   updated_at: Date;
 
   constructor() {
-    if(!this.id_professor) {
+    if (!this.id_professor) {
       this.id_professor = uuid();
     }
   }
