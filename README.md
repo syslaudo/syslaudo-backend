@@ -1,6 +1,6 @@
 # Sistema de Laudos de Cardiologia 
 
-Projeto realizado para a matéria de Laboratório de Engenharia de Software.
+Projeto criado para a matéria de Laboratório de Engenharia de Software.
 
 ## Contexto 📃
 Sistema de gerenciamento para solicitação de exames e emissão de laudos para serviços da área de cardiologia.
