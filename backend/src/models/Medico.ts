@@ -21,9 +21,15 @@ class Medico {
   @Column()
   ativo: boolean;
 
-  @OneToOne(() => Usuario)
-  @JoinColumn()
-  usuario: Usuario;
+  @Column()
+  id: string;
+
+  @Column()
+  cpf: string;
+
+  // @OneToOne(() => Usuario)
+  // @JoinColumn()
+  // usuario: Usuario;
 
   @OneToMany((type) => Pedido, (pedido) => pedido.medico) pedidos: Pedido[];
 

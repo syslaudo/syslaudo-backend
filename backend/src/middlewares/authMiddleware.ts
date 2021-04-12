@@ -16,7 +16,7 @@ export default function authMiddleware(
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(401).json({ message: 'Lumena não autorizou' });
+    return res.status(401).json({ message: 'Você não tem autorização!' });
   }
 
   const token = authorization.replace('Bearer', '').trim();
@@ -28,6 +28,6 @@ export default function authMiddleware(
     req.userId = id;
     return next();
   } catch (error) {
-    return res.status(401).json({ message: 'Lumena não autorizou' });
+    return res.status(401).json({ message: 'Você não tem autorização' });
   }
 }

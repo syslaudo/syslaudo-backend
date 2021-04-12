@@ -36,6 +36,12 @@ export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
+
+          {
+            name: 'cpf',
+            type: 'varchar',
+            isNullable: false,
+          },
         ],
         foreignKeys: [
           {
