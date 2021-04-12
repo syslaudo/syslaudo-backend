@@ -123,4 +123,18 @@ export default class UsuarioController {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  public async listar(req: Request, res: Response): Promise<Response> {
+    try {
+      const user = await getRepository(Usuario).find({ where: { id: req.userId } });
+
+      if (user.length == 0) {
+        return res.status(404).json({ message: 'Nenhum usúario encontrado!' });
+      }
+
+      return res.json(user);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }

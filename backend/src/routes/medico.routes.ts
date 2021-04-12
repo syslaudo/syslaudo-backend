@@ -6,6 +6,8 @@ const medicoController = new MedicoController();
 const medicoRouter = Router();
 
 medicoRouter.use(authMiddleware);
-medicoRouter.post('/criar', medicoController.criar);
+medicoRouter.post('/create', medicoController.criarMedico);
+medicoRouter.get('/listAll', medicoController.listarMedicos);
+medicoRouter.put('/update', medicoController.editar);
 
 export default medicoRouter;

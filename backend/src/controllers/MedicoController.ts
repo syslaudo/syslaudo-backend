@@ -16,9 +16,10 @@ const schemaMedico = yup.object().shape({
 });
 
 export default class MedicoController {
-  async criar(req: Request, res: Response): Promise<Response> {
+  public async criarMedico(req: Request, res: Response): Promise<Response> {
+    const { crm, ativo, cpf, emailUsuarioSolicitado } = req.body;
+
     try {
-      const { crm, ativo, cpf, emailUsuarioSolicitado } = req.body;
       await schemaMedico.validate({ crm, ativo, cpf, emailUsuarioSolicitado });
 
       const repository = getRepository(Usuario);
@@ -44,6 +45,50 @@ export default class MedicoController {
       return res.json(medico)
     } catch (error) {
       console.log(error);
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async listarMedicos(req: Request, res: Response): Promise<Response> {
+    try {
+      const medico = await getRepository(Medico).find();
+
+      if (medico.length == 0) {
+        return res.status(404).json({ message: 'Nenhum médico encontrado!' });
+      }
+
+      return res.json(medico);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async editar(req: Request, res: Response): Promise<Response> {
+    const { crm, ativo, cpf, emailUsuarioSolicitado } = req.body;
+
+    try {
+      await schemaMedico.validate({
+        crm,
+        ativo,
+        cpf,
+        emailUsuarioSolicitado,
+      });
+      delete req.body.emailUsuarioSolicitado;
+
+      const repositoryMedico = await getRepository(Medico).findOne({ where: { cpf: cpf } });
+
+      const data = {
+        
+      }
+
+      const repository = await getRepository(Medico).update(cpf, )
+      console.log(repository)
+      return res.status(404).json({ message: 'Medico não encontrado' });
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        return res.status(400).json({ message: error.message });
+      }
+
       return res.status(500).json({ message: error.message });
     }
   }
