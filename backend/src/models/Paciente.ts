@@ -25,7 +25,7 @@ class Paciente {
   cor_paciente: string;
 
   @Column()
-  datnasc_paciente: Date;
+  datanasc_paciente: Date;
 
   @Column()
   aguarda_realizacao: boolean;

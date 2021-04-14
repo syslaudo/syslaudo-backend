@@ -2,7 +2,8 @@ import { Router } from 'express';
 
 import usuarioRoutes from './usuario.routes';
 import sessionRoutes from './session.routes';
-// import medicoRoutes from './medico.routes';
+import pacienteRoutes from './paciente.routes';
+// import medicoRouter from './medico.routes';
 
 const router = Router();
 
@@ -14,5 +15,8 @@ router.use('/session', sessionRoutes);
 
 // ROTA PARA CRIAR, LISTAR E APAGAR MÉDICO;
 // router.use('/medico', medicoRoutes);
+
+// ROTA PARA CRIAR, LISTAR E APAGAR PACIENTE;
+router.use('/paciente', pacienteRoutes);
 
 export default router;

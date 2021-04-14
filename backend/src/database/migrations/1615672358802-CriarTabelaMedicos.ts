@@ -58,7 +58,7 @@ export class CriarTabelaMedicos1615672358802 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('medicos');
     await queryRunner.query('DROP EXTENSION "uuid-ossp"');
+    await queryRunner.dropTable('medicos');
   }
 }

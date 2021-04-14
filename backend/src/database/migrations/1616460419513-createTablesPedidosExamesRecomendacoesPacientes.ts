@@ -42,8 +42,28 @@ export class createTablesPedidosExamesRecomendacoesPacientes1616460419513
           },
 
           {
+            name: 'aguarda_realizacao',
+            type: 'boolean',
+            isNullable: false,
+          },
+
+          {
             name: 'datanasc_paciente',
             type: 'timestamp without time zone',
+            isNullable: false,
+          },
+
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+            isNullable: false,
+          },
+
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
             isNullable: false,
           },
         ],

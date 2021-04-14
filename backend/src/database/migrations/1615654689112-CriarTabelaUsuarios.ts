@@ -81,7 +81,7 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('usuarios');
     await queryRunner.query('DROP EXTENSION "uuid-ossp"');
+    await queryRunner.dropTable('usuarios');
   }
 }
