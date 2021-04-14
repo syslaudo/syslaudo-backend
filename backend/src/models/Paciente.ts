@@ -19,6 +19,9 @@ class Paciente {
   nome_paciente: string;
 
   @Column()
+  cpf: string;
+
+  @Column()
   sexo_paciente: string;
 
   @Column()

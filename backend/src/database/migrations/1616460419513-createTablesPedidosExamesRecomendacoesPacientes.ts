@@ -30,6 +30,13 @@ export class createTablesPedidosExamesRecomendacoesPacientes1616460419513
           },
 
           {
+            name: 'cpf',
+            type: 'varchar',
+            isUnique: true,
+            isNullable: false,
+          },
+
+          {
             name: 'sexo_paciente',
             type: 'varchar',
             isNullable: false,

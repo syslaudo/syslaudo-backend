@@ -8,6 +8,7 @@ const today = moment().format('YYYY-MM-DD HH:MM:SS');
 
 const schemaPaciente = yup.object().shape({
   nome_paciente: yup.string().required('Nome é requerido!'),
+  cpf: yup.string().max(11).required('CPF é requerido'),
   sexo_paciente: yup.string().required('Sexo é requerido!'),
   cor_paciente: yup.string().required('Cor é requerida!'),
   datanasc_paciente: yup
@@ -21,6 +22,7 @@ export default class PacientesController {
   public async create(req: Request, res: Response): Promise<Response> {
     const {
       nome_paciente,
+      cpf,
       sexo_paciente,
       cor_paciente,
       datanasc_paciente,
@@ -30,6 +32,7 @@ export default class PacientesController {
     try {
       await schemaPaciente.validate({
         nome_paciente,
+        cpf,
         sexo_paciente,
         cor_paciente,
         datanasc_paciente,
@@ -37,8 +40,17 @@ export default class PacientesController {
       });
 
       const repository = getRepository(Paciente);
+      const pacientExists = repository.findOne({ where: { cpf: cpf } });
+
+      if (pacientExists) {
+        return res
+          .status(409)
+          .json({ message: 'Já existe um Paciente cadastrado com esse CPF.' });
+      }
+
       const paciente = repository.create({
         nome_paciente,
+        cpf,
         sexo_paciente,
         cor_paciente,
         datanasc_paciente,
@@ -93,6 +105,7 @@ export default class PacientesController {
     const { id } = req.params;
     const {
       nome_paciente,
+      cpf,
       sexo_paciente,
       cor_paciente,
       datanasc_paciente,
@@ -102,6 +115,7 @@ export default class PacientesController {
     try {
       await schemaPaciente.validate({
         nome_paciente,
+        cpf,
         sexo_paciente,
         cor_paciente,
         datanasc_paciente,

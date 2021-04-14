@@ -52,7 +52,7 @@ export default class UsuarioController {
       const userExists = await repository.findOne({ where: { email_usuario } });
 
       if (userExists) {
-        res.status(409).json({ message: 'Email já existente.' });
+        return res.status(409).json({ message: 'Email já existente.' });
       }
 
       const usuario = repository.create({
