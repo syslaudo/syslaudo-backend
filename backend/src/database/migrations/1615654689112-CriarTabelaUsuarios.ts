@@ -42,6 +42,7 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
           {
             name: 'cpf',
             type: 'varchar',
+            isUnique: true,
           },
 
           {
@@ -58,7 +59,7 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
 
           {
             name: 'data_residencia',
-            type: 'timestamp',
+            type: 'varchar',
             isNullable: true,
           },
 

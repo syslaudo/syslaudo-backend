@@ -3,11 +3,8 @@ import { getRepository } from 'typeorm';
 import Paciente from '../models/Paciente';
 import * as yup from 'yup';
 import moment from 'moment';
-import parseDateString from '../util/parseDateString';
 
 const today = moment().format('YYYY-MM-DD HH:MM:SS');
-console.log(today);
-// console.log(new Date());
 
 const schemaPaciente = yup.object().shape({
   nome_paciente: yup.string().required('Nome é requerido!'),
@@ -17,6 +14,7 @@ const schemaPaciente = yup.object().shape({
     .date()
     .max(today)
     .required('Data de nascimento é requerida!'),
+  aguarda_realizacao: yup.boolean().required('true / false'),
 });
 
 export default class PacientesController {
@@ -26,6 +24,7 @@ export default class PacientesController {
       sexo_paciente,
       cor_paciente,
       datanasc_paciente,
+      aguarda_realizacao,
     } = req.body;
 
     try {
@@ -34,6 +33,7 @@ export default class PacientesController {
         sexo_paciente,
         cor_paciente,
         datanasc_paciente,
+        aguarda_realizacao,
       });
 
       const repository = getRepository(Paciente);
@@ -42,6 +42,7 @@ export default class PacientesController {
         sexo_paciente,
         cor_paciente,
         datanasc_paciente,
+        aguarda_realizacao,
       });
 
       await repository.save(paciente);
@@ -52,6 +53,89 @@ export default class PacientesController {
         return res.status(400).json({ message: error.message });
       }
 
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async show(req: Request, res: Response): Promise<Response> {
+    const { nome_paciente } = req.body;
+
+    try {
+      const paciente = await getRepository(Paciente).find({
+        where: { nome_paciente: nome_paciente },
+      });
+
+      if (paciente.length == 0) {
+        return res.status(404).json({ message: 'Nenhum paciente encontrado!' });
+      }
+
+      return res.json(paciente);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async listAll(req: Request, res: Response): Promise<Response> {
+    try {
+      const pacientes = await getRepository(Paciente).find();
+
+      if (pacientes.length == 0) {
+        return res.status(404).json({ message: 'Nenhum paciente encontrado!' });
+      }
+
+      return res.json(pacientes);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async update(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const {
+      nome_paciente,
+      sexo_paciente,
+      cor_paciente,
+      datanasc_paciente,
+      aguarda_realizacao,
+    } = req.body;
+
+    try {
+      await schemaPaciente.validate({
+        nome_paciente,
+        sexo_paciente,
+        cor_paciente,
+        datanasc_paciente,
+        aguarda_realizacao,
+      });
+
+      const repository = await getRepository(Paciente).update(id, req.body);
+
+      if (repository.affected === 1) {
+        const repositoryAtualizado = await getRepository(Paciente).findOne(id);
+        return res.status(200).json(repositoryAtualizado);
+      }
+
+      return res.status(404).json({ message: 'Paciente não encontrado' });
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        return res.status(400).json({ message: error.message });
+      }
+
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    try {
+      const repository = getRepository(Paciente);
+      await repository.delete(id);
+
+      return res
+        .status(201)
+        .json({ message: 'Paciente deletado com sucesso!' });
+    } catch (error) {
       return res.status(500).json({ message: error.message });
     }
   }

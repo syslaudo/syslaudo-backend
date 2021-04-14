@@ -7,8 +7,8 @@ const usuarioController = new UsuarioController();
 const usuarioRouter = Router();
 
 usuarioRouter.post('/create', usuarioController.criarUsuario);
-usuarioRouter.use(authMiddleware);
-usuarioRouter.get('/listIdUser', isAdmin, usuarioController.listarUserID);
+usuarioRouter.use(authMiddleware, isAdmin);
+usuarioRouter.get('/listIdUser', usuarioController.listarUserID);
 usuarioRouter.get('/show', usuarioController.listar);
 usuarioRouter.get('/listAll', usuarioController.listarUsuarios);
 usuarioRouter.put('/update', usuarioController.atualizar);
