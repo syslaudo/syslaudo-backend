@@ -40,7 +40,8 @@ export default class PacientesController {
       });
 
       const repository = getRepository(Paciente);
-      const pacientExists = repository.findOne({ where: { cpf: cpf } });
+      const pacientExists = await repository.findOne({ where: { cpf: cpf } });
+      console.log(pacientExists);
 
       if (pacientExists) {
         return res

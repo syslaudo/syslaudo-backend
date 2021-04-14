@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import bcrypt from 'bcryptjs';
 import * as yup from 'yup';
 
 import Usuario from '../models/Usuario';
@@ -121,19 +122,21 @@ export default class UsuarioController {
       data_residencia,
     } = req.body;
 
-    try {
-      await schemaUsuario.validate({
-        nome_do_usuario,
-        email_usuario,
-        senha,
-        tipo,
-        cpf,
-        crm,
-        titulacao,
-        data_residencia,
-      });
+    const updatedUser = {
+      nome_do_usuario,
+      email_usuario,
+      senha: bcrypt.hashSync(senha, 8),
+      tipo,
+      cpf,
+      crm,
+      titulacao,
+      data_residencia,
+    };
 
-      const repository = await getRepository(Usuario).update(id, req.body);
+    try {
+      await schemaUsuario.validate(updatedUser);
+
+      const repository = await getRepository(Usuario).update(id, updatedUser);
 
       if (repository.affected === 1) {
         const repositoryAtualizado = await getRepository(Usuario).findOne(
