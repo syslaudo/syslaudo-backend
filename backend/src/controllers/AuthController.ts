@@ -48,9 +48,9 @@ export default class UsuarioController {
 
       const user = {
         id: usuario[0].id,
-        nome: usuario[0].nome_usuario,
+        nome: usuario[0].nome_do_usuario,
         email_usuario: usuario[0].email_usuario,
-        funcao: usuario[0].funcao,
+        tipo: usuario[0].tipo,
       };
 
       return res.status(200).json({ user, token });

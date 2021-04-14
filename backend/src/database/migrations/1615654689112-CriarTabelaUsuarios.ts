@@ -17,7 +17,7 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
           },
 
           {
-            name: 'nome_usuario',
+            name: 'nome_do_usuario',
             type: 'varchar',
             isNullable: false,
           },
@@ -35,8 +35,31 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
           },
 
           {
-            name: 'funcao',
+            name: 'tipo',
             type: 'varchar',
+          },
+
+          {
+            name: 'cpf',
+            type: 'varchar',
+          },
+
+          {
+            name: 'crm',
+            type: 'varchar',
+            isNullable: true,
+          },
+
+          {
+            name: 'titulacao',
+            type: 'varchar',
+            isNullable: true,
+          },
+
+          {
+            name: 'data_residencia',
+            type: 'timestamp',
+            isNullable: true,
           },
 
           {

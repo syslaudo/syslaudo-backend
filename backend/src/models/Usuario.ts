@@ -16,7 +16,7 @@ class Usuario {
   id: string;
 
   @Column()
-  nome_usuario: string;
+  nome_do_usuario: string;
 
   @Column()
   email_usuario: string;
@@ -25,7 +25,19 @@ class Usuario {
   senha: string;
 
   @Column()
-  funcao: string;
+  tipo: string;
+
+  @Column()
+  cpf: string;
+
+  @Column()
+  crm: string;
+
+  @Column()
+  titulacao: string;
+
+  @Column()
+  data_residencia: Date;
 
   @CreateDateColumn()
   created_at: Date;

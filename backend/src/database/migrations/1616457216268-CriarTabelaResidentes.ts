@@ -42,6 +42,7 @@ export class CriarTabelaResidentes1616457216268 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('DROP EXTENSION "uuid-ossp"');
     await queryRunner.dropTable('residentes');
   }
 }

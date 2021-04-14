@@ -1,11 +1,14 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import * as yup from 'yup';
+import moment from 'moment';
 
 import Usuario from '../models/Usuario';
 
+const today = moment().format('YYYY-MM-DD');
+
 const schemaUsuario = yup.object().shape({
-  nome_usuario: yup.string().required('Nome é requerido!'),
+  nome_do_usuario: yup.string().required('Nome é requerido!'),
   email_usuario: yup
     .string()
     .email('Insira um email valido! Ex:exemple@exemple.com')
@@ -14,7 +17,11 @@ const schemaUsuario = yup.object().shape({
   confirmar_senha: yup
     .string()
     .oneOf([yup.ref('senha'), null], 'As senhas devem corresponder'),
-  funcao: yup.string().required('Função é requerida!'),
+  tipo: yup.string().required('Tipo é requerido'),
+  cpf: yup.string().max(11).required('CPF é requerido'),
+  crm: yup.string().min(4).max(10),
+  titulacao: yup.string().min(4).max(10),
+  data_residencia: yup.date().max(today),
 });
 
 export default class UsuarioController {
@@ -24,20 +31,28 @@ export default class UsuarioController {
 
   public async criarUsuario(req: Request, res: Response): Promise<Response> {
     const {
-      nome_usuario,
+      nome_do_usuario,
       email_usuario,
       senha,
       confirmar_senha,
-      funcao,
+      tipo,
+      cpf,
+      crm,
+      titulacao,
+      data_residencia,
     } = req.body;
 
     try {
       await schemaUsuario.validate({
-        nome_usuario,
+        nome_do_usuario,
         email_usuario,
         senha,
         confirmar_senha,
-        funcao,
+        tipo,
+        cpf,
+        crm,
+        titulacao,
+        data_residencia,
       });
 
       const repository = getRepository(Usuario);
@@ -49,10 +64,14 @@ export default class UsuarioController {
       }
 
       const usuario = repository.create({
-        nome_usuario,
+        nome_do_usuario,
         email_usuario,
         senha,
-        funcao,
+        tipo,
+        cpf,
+        crm,
+        titulacao,
+        data_residencia,
       });
       await repository.save(usuario);
 
@@ -81,14 +100,27 @@ export default class UsuarioController {
   }
 
   public async atualizar(req: Request, res: Response): Promise<Response> {
-    const { nome_usuario, email_usuario, senha, funcao } = req.body;
+    const {
+      nome_do_usuario,
+      email_usuario,
+      senha,
+      tipo,
+      cpf,
+      crm,
+      titulacao,
+      data_residencia,
+    } = req.body;
 
     try {
       await schemaUsuario.validate({
-        nome_usuario,
+        nome_do_usuario,
         email_usuario,
         senha,
-        funcao,
+        tipo,
+        cpf,
+        crm,
+        titulacao,
+        data_residencia,
       });
 
       const repository = await getRepository(Usuario).update(
@@ -126,7 +158,9 @@ export default class UsuarioController {
 
   public async listar(req: Request, res: Response): Promise<Response> {
     try {
-      const user = await getRepository(Usuario).find({ where: { id: req.userId } });
+      const user = await getRepository(Usuario).find({
+        where: { id: req.userId },
+      });
 
       if (user.length == 0) {
         return res.status(404).json({ message: 'Nenhum usúario encontrado!' });

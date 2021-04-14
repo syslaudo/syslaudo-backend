@@ -251,6 +251,7 @@ export class createTablesPedidosExamesRecomendacoesPacientes1616460419513
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('DROP EXTENSION "uuid-ossp"');
     await queryRunner.dropTable('pacientes');
     await queryRunner.dropTable('pedidos');
     await queryRunner.dropTable('exames');

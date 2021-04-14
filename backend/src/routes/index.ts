@@ -13,6 +13,6 @@ router.use('/usuario', usuarioRoutes);
 router.use('/session', sessionRoutes);
 
 // ROTA PARA CRIAR, LISTAR E APAGAR MÉDICO;
-router.use('/medico', medicoRoutes);
+// router.use('/medico', medicoRoutes);
 
 export default router;

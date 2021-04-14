@@ -58,6 +58,7 @@ export class CriarTabelaProfessores1615674665237 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('DROP EXTENSION "uuid-ossp"');
     await queryRunner.dropTable('professores');
   }
 }
