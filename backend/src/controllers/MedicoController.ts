@@ -3,7 +3,6 @@
 // import * as yup from 'yup';
 
 // import Usuario from '../models/Usuario';
-// import Medico from '../models/Medico';
 
 // const schemaMedico = yup.object().shape({
 //   crm: yup.string().min(4).max(10).required('Insira um CRM válido!'),
@@ -28,7 +27,7 @@
 //         where: { email_usuario: emailUsuarioSolicitado },
 //       });
 //       const id = userExists?.id
-      
+
 //       if (userExists) {
 //         res.status(409).json({ message: 'Email já existente.' });
 //       }
@@ -78,7 +77,7 @@
 //       const repositoryMedico = await getRepository(Medico).findOne({ where: { cpf: cpf } });
 
 //       const data = {
-        
+
 //       }
 
 //       const repository = await getRepository(Medico).update(cpf, )

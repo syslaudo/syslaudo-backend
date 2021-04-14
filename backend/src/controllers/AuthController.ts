@@ -51,6 +51,10 @@ export default class UsuarioController {
         nome: usuario[0].nome_do_usuario,
         email_usuario: usuario[0].email_usuario,
         tipo: usuario[0].tipo,
+        cpf: usuario[0].cpf,
+        crm: usuario[0].crm,
+        titulacao: usuario[0].titulacao,
+        data_residencia: usuario[0].data_residencia,
       };
 
       return res.status(200).json({ user, token });

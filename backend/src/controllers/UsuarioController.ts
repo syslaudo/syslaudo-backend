@@ -1,11 +1,8 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import * as yup from 'yup';
-import moment from 'moment';
 
 import Usuario from '../models/Usuario';
-
-const today = moment().format('YYYY-MM-DD');
 
 const schemaUsuario = yup.object().shape({
   nome_do_usuario: yup.string().required('Nome é requerido!'),
@@ -19,9 +16,9 @@ const schemaUsuario = yup.object().shape({
     .oneOf([yup.ref('senha'), null], 'As senhas devem corresponder'),
   tipo: yup.string().required('Tipo é requerido'),
   cpf: yup.string().max(11).required('CPF é requerido'),
-  crm: yup.string().min(4).max(10),
-  titulacao: yup.string().min(4).max(10),
-  data_residencia: yup.date().max(today),
+  crm: yup.string().default(null).notRequired().max(10),
+  titulacao: yup.string().default(null).notRequired(),
+  data_residencia: yup.string().default(undefined).notRequired(),
 });
 
 export default class UsuarioController {
@@ -78,6 +75,7 @@ export default class UsuarioController {
       return res.json(usuario);
     } catch (error) {
       if (error instanceof yup.ValidationError) {
+        console.log(yup.ValidationError);
         return res.status(400).json({ message: error.message });
       }
 

@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import usuarioRoutes from './usuario.routes';
 import sessionRoutes from './session.routes';
-import medicoRoutes from './medico.routes';
+// import medicoRoutes from './medico.routes';
 
 const router = Router();
 

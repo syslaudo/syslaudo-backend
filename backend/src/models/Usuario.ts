@@ -37,7 +37,7 @@ class Usuario {
   titulacao: string;
 
   @Column()
-  data_residencia: Date;
+  data_residencia: string;
 
   @CreateDateColumn()
   created_at: Date;
