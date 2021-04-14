@@ -11,9 +11,6 @@ const schemaUsuario = yup.object().shape({
     .email('Insira um email valido! Ex:exemple@exemple.com')
     .required('Email é requerido!'),
   senha: yup.string().min(6).required('Senha é requerida!'),
-  confirmar_senha: yup
-    .string()
-    .oneOf([yup.ref('senha'), null], 'As senhas devem corresponder'),
   tipo: yup.string().required('Tipo é requerido'),
   cpf: yup.string().max(11).required('CPF é requerido'),
   crm: yup.string().default(null).notRequired().max(10),
@@ -31,7 +28,6 @@ export default class UsuarioController {
       nome_do_usuario,
       email_usuario,
       senha,
-      confirmar_senha,
       tipo,
       cpf,
       crm,
@@ -44,7 +40,6 @@ export default class UsuarioController {
         nome_do_usuario,
         email_usuario,
         senha,
-        confirmar_senha,
         tipo,
         cpf,
         crm,

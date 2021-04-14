@@ -12,7 +12,7 @@ export default async function isAdmin(
     where: { id: req.userId },
   });
 
-  if (usuario?.tipo != 'Administrativo') {
+  if (usuario?.tipo != 'Administrador') {
     return res.status(409).json({ message: 'Você não é Administrador' });
   }
   next();
