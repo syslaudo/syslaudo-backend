@@ -51,7 +51,7 @@ export class createTablesPedidosExamesRecomendacoesPacientes1616460419513
           {
             name: 'aguarda_realizacao',
             type: 'boolean',
-            isNullable: false,
+            isNullable: true,
           },
 
           {

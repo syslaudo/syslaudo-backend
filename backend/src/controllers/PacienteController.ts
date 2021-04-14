@@ -15,7 +15,7 @@ const schemaPaciente = yup.object().shape({
     .date()
     .max(today)
     .required('Data de nascimento é requerida!'),
-  aguarda_realizacao: yup.boolean().required('true / false'),
+  aguarda_realizacao: yup.boolean(),
 });
 
 export default class PacientesController {
@@ -28,7 +28,7 @@ export default class PacientesController {
       datanasc_paciente,
       aguarda_realizacao,
     } = req.body;
-
+    console.log(req.body);
     try {
       await schemaPaciente.validate({
         nome_paciente,

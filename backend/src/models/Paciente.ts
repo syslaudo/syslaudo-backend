@@ -1,7 +1,6 @@
 import {
   Column,
   Entity,
-  JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
   CreateDateColumn,
@@ -33,6 +32,7 @@ class Paciente {
   @Column()
   aguarda_realizacao: boolean;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @OneToMany((type) => Pedido, (pedido) => pedido.paciente) pedidos: Pedido[];
 
   @CreateDateColumn()

@@ -1,13 +1,6 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Usuario from './Usuario';
+// import Usuario from './Usuario';
 import Pedido from './Pedido';
 
 @Entity('medicos')
@@ -31,6 +24,7 @@ class Medico {
   // @JoinColumn()
   // usuario: Usuario;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @OneToMany((type) => Pedido, (pedido) => pedido.medico) pedidos: Pedido[];
 
   constructor() {
