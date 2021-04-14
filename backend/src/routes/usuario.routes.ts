@@ -6,12 +6,12 @@ import UsuarioController from '../controllers/UsuarioController';
 const usuarioController = new UsuarioController();
 const usuarioRouter = Router();
 
-usuarioRouter.post('/create', usuarioController.criarUsuario);
+usuarioRouter.post('/create', usuarioController.create);
 usuarioRouter.use(authMiddleware, isAdmin);
-usuarioRouter.get('/listIdUser', usuarioController.listarUserID);
-usuarioRouter.get('/show', usuarioController.listar);
-usuarioRouter.get('/listAll', usuarioController.listarUsuarios);
-usuarioRouter.put('/update', usuarioController.atualizar);
-usuarioRouter.delete('/delete', usuarioController.deletar);
+usuarioRouter.get('/listIdUser', usuarioController.listUserId);
+usuarioRouter.get('/show', usuarioController.show);
+usuarioRouter.get('/listAll', usuarioController.listAll);
+usuarioRouter.put('/update/:id', usuarioController.update);
+usuarioRouter.delete('/delete/:id', usuarioController.delete);
 
 export default usuarioRouter;

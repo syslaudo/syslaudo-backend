@@ -22,11 +22,11 @@ const schemaUsuario = yup.object().shape({
 });
 
 export default class UsuarioController {
-  public async listarUserID(req: Request, res: Response): Promise<Response> {
+  public async listUserId(req: Request, res: Response): Promise<Response> {
     return res.send({ userID: req.userId });
   }
 
-  public async criarUsuario(req: Request, res: Response): Promise<Response> {
+  public async create(req: Request, res: Response): Promise<Response> {
     const {
       nome_do_usuario,
       email_usuario,
@@ -83,7 +83,23 @@ export default class UsuarioController {
     }
   }
 
-  public async listarUsuarios(req: Request, res: Response): Promise<Response> {
+  public async show(req: Request, res: Response): Promise<Response> {
+    try {
+      const user = await getRepository(Usuario).find({
+        where: { id: req.userId },
+      });
+
+      if (user.length == 0) {
+        return res.status(404).json({ message: 'Nenhum usúario encontrado!' });
+      }
+
+      return res.json(user);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async listAll(req: Request, res: Response): Promise<Response> {
     try {
       const users = await getRepository(Usuario).find();
 
@@ -97,7 +113,8 @@ export default class UsuarioController {
     }
   }
 
-  public async atualizar(req: Request, res: Response): Promise<Response> {
+  public async update(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
     const {
       nome_do_usuario,
       email_usuario,
@@ -121,10 +138,7 @@ export default class UsuarioController {
         data_residencia,
       });
 
-      const repository = await getRepository(Usuario).update(
-        req.userId,
-        req.body,
-      );
+      const repository = await getRepository(Usuario).update(id, req.body);
 
       if (repository.affected === 1) {
         const repositoryAtualizado = await getRepository(Usuario).findOne(
@@ -143,28 +157,13 @@ export default class UsuarioController {
     }
   }
 
-  public async deletar(req: Request, res: Response): Promise<Response> {
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
     try {
       const repository = getRepository(Usuario);
-      await repository.delete({ id: req.userId });
+      await repository.delete(id);
 
-      return res.status(204).json({ message: 'Usúario deletado com sucesso!' });
-    } catch (error) {
-      return res.status(500).json({ message: error.message });
-    }
-  }
-
-  public async listar(req: Request, res: Response): Promise<Response> {
-    try {
-      const user = await getRepository(Usuario).find({
-        where: { id: req.userId },
-      });
-
-      if (user.length == 0) {
-        return res.status(404).json({ message: 'Nenhum usúario encontrado!' });
-      }
-
-      return res.json(user);
+      return res.status(201).json({ message: 'Usúario deletado com sucesso!' });
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
