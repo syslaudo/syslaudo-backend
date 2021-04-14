@@ -11,7 +11,7 @@ const schemaUsuario = yup.object().shape({
     .string()
     .email('Insira um email valido! Ex:exemple@exemple.com')
     .required('Email é requerido!'),
-  senha: yup.string().min(6).required('Senha é requerida!'),
+  senha: yup.string().min(6),
   tipo: yup.string().required('Tipo é requerido'),
   cpf: yup.string().max(11).required('CPF é requerido'),
   crm: yup.string().default(null).notRequired().max(10),
@@ -114,7 +114,6 @@ export default class UsuarioController {
     const {
       nome_do_usuario,
       email_usuario,
-      senha,
       tipo,
       cpf,
       crm,
@@ -125,13 +124,16 @@ export default class UsuarioController {
     const updatedUser = {
       nome_do_usuario,
       email_usuario,
-      senha: bcrypt.hashSync(senha, 8),
       tipo,
       cpf,
       crm,
       titulacao,
       data_residencia,
     };
+
+    if (req.body.senha) {
+      Object.assign(updatedUser, {senha: bcrypt.hashSync(req.body.senha, 8)})
+    }
 
     try {
       await schemaUsuario.validate(updatedUser);
