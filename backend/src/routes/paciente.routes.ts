@@ -8,10 +8,10 @@ const pacienteController = new PacienteController();
 const pacienteRouter = Router();
 
 pacienteRouter.use(authMiddleware);
-pacienteRouter.post('/create', isAdmin, pacienteController.create);
-pacienteRouter.get('/show', isAdmin, pacienteController.show);
-pacienteRouter.get('/listAll', isAdmin, pacienteController.listAll);
-pacienteRouter.put('/update/:id', isAdmin, pacienteController.update);
-pacienteRouter.delete('/delete/:id', isAdmin, pacienteController.delete);
+pacienteRouter.post('/create', pacienteController.create);
+pacienteRouter.get('/show', pacienteController.show);
+pacienteRouter.get('/listAll', pacienteController.listAll);
+pacienteRouter.put('/update/:id', pacienteController.update);
+pacienteRouter.delete('/delete/:id', pacienteController.delete);
 
 export default pacienteRouter;

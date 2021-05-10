@@ -33,8 +33,8 @@ class Exame {
   @Column()
   laudo_aprovado: boolean;
 
-  @OneToOne((type) => Pedido)
   @JoinColumn()
+  @OneToOne(() => Pedido)
   pedido: Pedido;
 
   @CreateDateColumn()

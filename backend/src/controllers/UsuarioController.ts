@@ -132,7 +132,7 @@ export default class UsuarioController {
     };
 
     if (req.body.senha) {
-      Object.assign(updatedUser, {senha: bcrypt.hashSync(req.body.senha, 8)})
+      Object.assign(updatedUser, { senha: bcrypt.hashSync(req.body.senha, 8) });
     }
 
     try {

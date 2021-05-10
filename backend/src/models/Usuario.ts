@@ -47,7 +47,6 @@ class Usuario {
 
   @BeforeInsert()
   @BeforeUpdate()
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   hashpassword() {
     this.senha = bcrypt.hashSync(this.senha, 8);
   }
