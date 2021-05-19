@@ -55,7 +55,7 @@ Sistema de gerenciamento para solicitação de exames e emissão de laudos para 
 			<tr>
 					<td>Lucas Santos Souza</td>
 					<td><a href="mailto:lucas.santos00@souunit.com.br">lucas.santos00@souunit.com.br</a></td>
-					<td>DBA</td>
+					<td>Desenvolvedor</td>
 			</tr>
 			<tr>
 					<td>Natália Braga da Fonseca</td>
