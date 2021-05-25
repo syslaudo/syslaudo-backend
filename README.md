@@ -32,8 +32,8 @@ Sistema de gerenciamento para solicitação de exames e emissão de laudos para 
    <thead>
 			<tr>
 					<th>Nome</th>
-					<th>Função</th>
 					<th>E-mail</th>
+					<th>Função</th>
 			</tr>
    </thead>
    <tbody>
