@@ -7,7 +7,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Pedido from './Pedido';
 
 @Entity('recomendacoes')
 class Recomendacao {
@@ -17,7 +16,7 @@ class Recomendacao {
   @Column()
   recomendacao_escrita: string;
 
-  @ManyToOne((type) => Pedido, (pedido) => pedido.recomendacoes) pedido: Pedido;
+  // @ManyToOne((type) => Pedido, (pedido) => pedido.recomendacoes) pedido: Pedido;
 
   @CreateDateColumn()
   created_at: Date;

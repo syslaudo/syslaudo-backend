@@ -8,7 +8,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Pedido from './Pedido';
 
 @Entity('exames')
 class Exame {
@@ -33,9 +32,9 @@ class Exame {
   @Column()
   laudo_aprovado: boolean;
 
-  @JoinColumn()
-  @OneToOne(() => Pedido)
-  pedido: Pedido;
+  // @JoinColumn()
+  // @OneToOne(() => Pedido)
+  // pedido: Pedido;
 
   @CreateDateColumn()
   created_at: Date;

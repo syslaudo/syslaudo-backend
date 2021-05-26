@@ -7,7 +7,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Pedido from './Pedido';
 
 @Entity('pacientes')
 class Paciente {
@@ -33,7 +32,7 @@ class Paciente {
   aguarda_realizacao: boolean;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  @OneToMany((type) => Pedido, (pedido) => pedido.paciente) pedidos: Pedido[];
+  // @OneToMany((type) => Pedido, (pedido) => pedido.paciente) pedidos: Pedido[];
 
   @CreateDateColumn()
   created_at: Date;
