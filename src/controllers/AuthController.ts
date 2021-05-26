@@ -31,7 +31,7 @@ export default class UsuarioController {
       });
 
       if (!usuario) {
-        res.status(404).json({ message: 'Usúario não encontrado' });
+        return res.status(401).json({ message: 'Usúario não encontrado' });
       }
 
       const isValidPassword = await bcrypt.compare(senha, usuario[0].senha);
@@ -59,7 +59,7 @@ export default class UsuarioController {
 
       return res.status(200).json({ user, token });
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res.status(401).json({ message: 'Usúario invalido' });
     }
   }
 }
