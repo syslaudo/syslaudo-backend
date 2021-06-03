@@ -18,23 +18,25 @@ class Exame {
   data_realizacao: Date;
 
   @Column()
-  hora_realizacao: Date;
+  cpf: string;
 
   @Column()
-  laudo_medico: string;
+  type: string;
 
   @Column()
-  tipo_exame: string;
+  status: string;
 
   @Column()
-  imagem_exame: string;
+  hipotese: boolean;
 
   @Column()
-  laudo_aprovado: boolean;
+  image: boolean;
 
-  // @JoinColumn()
-  // @OneToOne(() => Pedido)
-  // pedido: Pedido;
+  @Column()
+  report: string;
+
+  @Column()
+  report_status: string;
 
   @CreateDateColumn()
   created_at: Date;

@@ -61,6 +61,20 @@ export class CriarTabelaExames1622071541135 implements MigrationInterface {
             type: 'varchar',
             isNullable: false,
           },
+
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+            isNullable: false,
+          },
+
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+            isNullable: false,
+          },
         ],
       }),
     );

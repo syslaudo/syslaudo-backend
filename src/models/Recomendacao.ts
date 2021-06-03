@@ -14,9 +14,10 @@ class Recomendacao {
   id_recomendacao: string;
 
   @Column()
-  recomendacao_escrita: string;
+  exame: string;
 
-  // @ManyToOne((type) => Pedido, (pedido) => pedido.recomendacoes) pedido: Pedido;
+  @Column()
+  recomendacao: string;
 
   @CreateDateColumn()
   created_at: Date;

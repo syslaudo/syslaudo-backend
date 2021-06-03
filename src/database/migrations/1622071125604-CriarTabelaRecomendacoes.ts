@@ -23,7 +23,7 @@ export class CriarTabelaRecomendacoes1622071125604
           },
           {
             name: 'recomendacao',
-            type: 'timestamp without time zone',
+            type: 'varchar',
             isNullable: false,
           },
         ],
