@@ -67,7 +67,6 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
             name: 'reset_link',
             type: 'varchar',
             default: '',
-            isNullable: false,
           },
 
           {
