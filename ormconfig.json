@@ -6,7 +6,7 @@
   "password": "j*oi7Eh$3^NdoBRe!G^8",
   "database": "abfln",
   "synchronize": false,
-  "logging": true,
+  "logging": false,
   "migrations": ["./src/database/migrations/**.ts"],
   "entities": ["./src/models/**.ts"],
   "cli": {

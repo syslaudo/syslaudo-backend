@@ -1,7 +1,11 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import * as yup from 'yup';
+
+// import nodemailer from 'nodemailer';
+// import SMTP_CONFIG from '../config/smtp';
 
 import Usuario from '../models/Usuario';
 
@@ -166,6 +170,82 @@ export default class UsuarioController {
       return res.status(201).json({ message: 'Usúario deletado com sucesso!' });
     } catch (error) {
       return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async forgotPassword(req: Request, res: Response): Promise<Response> {
+    const { email_usuario } = req.body;
+    try {
+      const usuarioRepository = getRepository(Usuario);
+      const usuario = await usuarioRepository.find({
+        where: { email_usuario },
+      });
+
+      if (!usuario) {
+        return res
+          .status(400)
+          .json({ message: 'Email não encontrado na base de dados.' });
+      }
+
+      const payload = {
+        id: usuario[0].id,
+        email: usuario[0].email_usuario,
+      };
+
+      const token = jwt.sign(
+        { id: payload.id },
+        `${process.env.RESET_PASSWORD_KEY}`,
+        { expiresIn: '2h' },
+      );
+
+      const data = {
+        from: 'noreply@syslaudo.com',
+        to: email_usuario,
+        subject: 'Reset your password link',
+        html: `
+          <h2>Please click on given link to reset your password</h2>
+          <p>${process.env.CLIENT_URL}/session/reset-password/${payload.id}/${token}</p>
+        `,
+      };
+      return res.status(200).json({ message: data });
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  }
+
+  public async resetPassword(req: Request, res: Response): Promise<Response> {
+    const { id, token } = req.params;
+    const { password, passwordConfirmation } = req.body;
+
+    if (password !== passwordConfirmation) {
+      return res
+        .status(400)
+        .json({ message: 'As senhas informadas não conferem.' });
+    }
+
+    const usuarioRepository = getRepository(Usuario);
+    const usuario = await usuarioRepository.find({
+      where: { id },
+    });
+    const JWT_SECRET = `${process.env.RESET_PASSWORD_KEY}`;
+
+    if (id !== usuario[0].id) {
+      return res.status(400).json({ message: 'ID invalido.' });
+    }
+
+    const secret = JWT_SECRET;
+
+    try {
+      await jwt.verify(token, secret);
+      const newPassword = bcrypt.hashSync(req.body.password, 8);
+      await getRepository(Usuario).update(
+        { senha: usuario[0].senha },
+        { senha: newPassword },
+      );
+
+      return res.status(201).json({ message: 'Senha alterada com sucesso.' });
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
     }
   }
 }
