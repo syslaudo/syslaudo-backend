@@ -23,7 +23,7 @@ export class CriarTabelaExames1622071541135 implements MigrationInterface {
           {
             name: 'cpf',
             type: 'varchar',
-            isUnique: true,
+            isUnique: false,
           },
 
           {

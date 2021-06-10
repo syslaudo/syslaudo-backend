@@ -1,8 +1,6 @@
 import {
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
@@ -27,10 +25,10 @@ class Exame {
   status: string;
 
   @Column()
-  hipotese: boolean;
+  hipotese: string;
 
   @Column()
-  image: boolean;
+  image: string;
 
   @Column()
   report: string;
