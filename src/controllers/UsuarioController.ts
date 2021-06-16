@@ -210,7 +210,7 @@ export default class UsuarioController {
           subject: 'Reset your password link',
           html: `
           <h2>Please click on given link to reset your password</h2>
-          <p>${process.env.CLIENT_URL}/session/reset-password/${payload.id}/${token}</p>
+          <a>${process.env.CLIENT_URL}/redefinir-senha?id=${payload.id}&token=${token}</a>
         `,
         })
         .then()

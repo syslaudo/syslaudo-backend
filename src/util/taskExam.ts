@@ -27,7 +27,6 @@ function task(): void {
           });
         }
       }
-      console.log('oi');
     },
     null,
     true,
