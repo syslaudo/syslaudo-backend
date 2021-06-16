@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import * as yup from 'yup';
 import Exame from '../models/Exame';
+import Paciente from '../models/Paciente';
 import gerarPassword from '../util/gerarSenha';
 
 const schemaExame = yup.object().shape({
@@ -44,6 +45,14 @@ export default class UsuarioController {
       });
 
       const repository = getRepository(Exame);
+      const exameExists = await repository.findOne({ where: { cpf: cpf } });
+      console.log(exameExists);
+
+      if (exameExists?.status === 'Agendado') {
+        return res
+          .status(409)
+          .json({ message: 'Já existe um exame em solicitação.' });
+      }
 
       const senha = gerarPassword();
 
@@ -171,13 +180,20 @@ export default class UsuarioController {
       return res.status(400).json({ message: 'CPF invalido!' });
     }
 
+    const repositoryPaciente = getRepository(Paciente);
+    const nomePaciente = await repositoryPaciente.findOne({
+      where: { cpf: cpf },
+    });
+
     const resultadoExameObj = {
-      data_realizacao: isValidCredentials?.data_realizacao,
+      nome: nomePaciente?.nome_paciente,
       cpf: isValidCredentials?.cpf,
+      data_realizacao: isValidCredentials?.data_realizacao,
       type: isValidCredentials?.type,
       status: isValidCredentials?.status,
       hipotese: isValidCredentials?.hipotese,
       report: isValidCredentials?.report,
+      image: isValidCredentials?.image,
     };
     return res.json(resultadoExameObj);
   }
