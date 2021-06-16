@@ -14,8 +14,8 @@ const schemaExame = yup.object().shape({
   status: yup.string().required('O status é requerido.'),
   hipotese: yup.string().required('A hipótese é requerida.'),
   image: yup.string().required('O link da imagem é requerido.'),
-  report: yup.string().required('A hipótese é requerida.'),
-  report_status: yup.string().required('A hipótese é requerida.'),
+  report: yup.string(),
+  report_status: yup.string(),
 });
 
 export default class UsuarioController {
@@ -62,6 +62,7 @@ export default class UsuarioController {
 
       return res.json(exame);
     } catch (error) {
+      console.log(error);
       if (error instanceof yup.ValidationError) {
         console.log(yup.ValidationError);
         return res.status(400).json({ message: error.message });
@@ -156,5 +157,112 @@ export default class UsuarioController {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
+  }
+
+  public async getResult(req: Request, res: Response): Promise<Response> {
+    const { cpf, senha } = req.body;
+
+    const repository = getRepository(Exame);
+    const isValidCredentials = await repository.findOne({
+      where: { cpf: cpf } && { senha: senha },
+    });
+
+    if (isValidCredentials?.senha !== senha) {
+      return res.status(400).json({ message: 'Senha do exame invalida!' });
+    }
+
+    if (isValidCredentials?.cpf !== cpf) {
+      return res.status(400).json({ message: 'CPF invalido!' });
+    }
+
+    const resultadoExameObj = {
+      data_realizacao: isValidCredentials?.data_realizacao,
+      cpf: isValidCredentials?.cpf,
+      type: isValidCredentials?.type,
+      status: isValidCredentials?.status,
+      hipotese: isValidCredentials?.hipotese,
+      report: isValidCredentials?.report,
+    };
+    return res.json(resultadoExameObj);
+  }
+
+  public async getAgendados(req: Request, res: Response): Promise<Response> {
+    const repository = await getRepository(Exame).find();
+    const array = [];
+
+    for (let i = 0; i < repository.length; i++) {
+      if (repository[i].status === 'Agendado') {
+        array.push(repository[i]);
+      }
+    }
+
+    return res.json(array);
+  }
+
+  public async getCancelados(req: Request, res: Response): Promise<Response> {
+    const repository = await getRepository(Exame).find();
+    const array = [];
+
+    for (let i = 0; i < repository.length; i++) {
+      if (repository[i].status === 'Cancelado') {
+        array.push(repository[i]);
+      }
+    }
+
+    return res.json(array);
+  }
+
+  public async getFinalizados(req: Request, res: Response): Promise<Response> {
+    const repository = await getRepository(Exame).find();
+    const array = [];
+
+    for (let i = 0; i < repository.length; i++) {
+      if (
+        repository[i].status === 'Concluído' &&
+        repository[i].report_status === 'Concluído'
+      ) {
+        array.push(repository[i]);
+      }
+    }
+
+    return res.json(array);
+  }
+
+  public async getLaudoPendente(
+    req: Request,
+    res: Response,
+  ): Promise<Response> {
+    const repository = await getRepository(Exame).find();
+    const array = [];
+
+    for (let i = 0; i < repository.length; i++) {
+      if (
+        repository[i].status === 'Concluído' &&
+        repository[i].report_status === 'Aguardando laudo'
+      ) {
+        array.push(repository[i]);
+      }
+    }
+
+    return res.json(array);
+  }
+
+  public async getLaudoProvisorio(
+    req: Request,
+    res: Response,
+  ): Promise<Response> {
+    const repository = await getRepository(Exame).find();
+    const array = [];
+
+    for (let i = 0; i < repository.length; i++) {
+      if (
+        repository[i].status === 'Concluído' &&
+        repository[i].report_status === 'Provisório'
+      ) {
+        array.push(repository[i]);
+      }
+    }
+
+    return res.json(array);
   }
 }
