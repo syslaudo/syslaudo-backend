@@ -4,10 +4,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import * as yup from 'yup';
 
-// import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 // import SMTP_CONFIG from '../config/smtp';
 
 import Usuario from '../models/Usuario';
+import AppError from '../errors/AppError';
 
 const schemaUsuario = yup.object().shape({
   nome_do_usuario: yup.string().required('Nome é requerido!'),
@@ -198,16 +199,33 @@ export default class UsuarioController {
         { expiresIn: '2h' },
       );
 
-      const data = {
-        from: 'noreply@syslaudo.com',
-        to: email_usuario,
-        subject: 'Reset your password link',
-        html: `
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+          user: `${process.env.USER_SMTP}`,
+          pass: `${process.env.PASS_SMTP}`,
+        },
+      });
+
+      transporter
+        .sendMail({
+          from: `${process.env.USER_SMTP}`,
+          to: email_usuario,
+          subject: 'Reset your password link',
+          html: `
           <h2>Please click on given link to reset your password</h2>
           <p>${process.env.CLIENT_URL}/session/reset-password/${payload.id}/${token}</p>
         `,
-      };
-      return res.status(200).json({ message: data });
+        })
+        .then()
+        .catch((err) => {
+          throw new Error(err);
+        });
+      return res.status(200).json({
+        message: 'Foi enviado algumas instruções para você recuperar seu email',
+      });
     } catch (error) {
       return res.status(400).json({ message: error.message });
     }
