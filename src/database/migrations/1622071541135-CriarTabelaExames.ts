@@ -27,6 +27,11 @@ export class CriarTabelaExames1622071541135 implements MigrationInterface {
           },
 
           {
+            name: 'senha',
+            type: 'varchar',
+          },
+
+          {
             name: 'type',
             type: 'varchar',
             isNullable: false,
