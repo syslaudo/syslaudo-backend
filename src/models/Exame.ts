@@ -4,8 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import bcrypt from 'bcryptjs';
 
 @Entity('exames')
 class Exame {
@@ -17,6 +20,9 @@ class Exame {
 
   @Column()
   cpf: string;
+
+  @Column()
+  senha: string;
 
   @Column()
   type: string;

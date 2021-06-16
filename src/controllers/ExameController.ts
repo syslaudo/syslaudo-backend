@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import * as yup from 'yup';
 import Exame from '../models/Exame';
+import gerarPassword from '../util/gerarSenha';
 
 const schemaExame = yup.object().shape({
   data_realizacao: yup
@@ -44,9 +45,12 @@ export default class UsuarioController {
 
       const repository = getRepository(Exame);
 
+      const senha = gerarPassword();
+
       const exame = repository.create({
         data_realizacao,
         cpf,
+        senha,
         type,
         status,
         hipotese,
@@ -152,9 +156,5 @@ export default class UsuarioController {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
-  }
-
-  public async result(req: Request, res: Response): Promise<Response> {
-    return res.send('Falta implementar!');
   }
 }
