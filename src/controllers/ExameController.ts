@@ -46,7 +46,6 @@ export default class UsuarioController {
 
       const repository = getRepository(Exame);
       const exameExists = await repository.findOne({ where: { cpf: cpf } });
-      console.log(exameExists);
 
       if (exameExists?.status === 'Agendado') {
         return res
