@@ -5,10 +5,8 @@ import jwt from 'jsonwebtoken';
 import * as yup from 'yup';
 
 import nodemailer from 'nodemailer';
-// import SMTP_CONFIG from '../config/smtp';
 
 import Usuario from '../models/Usuario';
-import AppError from '../errors/AppError';
 
 const schemaUsuario = yup.object().shape({
   nome_do_usuario: yup.string().required('Nome é requerido!'),
