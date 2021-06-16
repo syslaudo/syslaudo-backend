@@ -39,6 +39,9 @@ class Usuario {
   @Column()
   data_residencia: string;
 
+  @Column()
+  reset_link: string;
+
   @CreateDateColumn()
   created_at: Date;
 
