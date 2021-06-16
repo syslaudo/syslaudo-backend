@@ -33,4 +33,64 @@ export default class RecomendacaoController {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  public async show(req: Request, res: Response): Promise<Response> {
+    const { exame } = req.body;
+    try {
+      const repositoryExame = await getRepository(Recomendacao).find({
+        where: { exame: exame },
+      });
+
+      if (repositoryExame.length == 0) {
+        return res
+          .status(404)
+          .json({ message: 'Nenhuma recomendação encontrada!' });
+      }
+
+      return res.json(repositoryExame);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async update(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { exame, recomendacao } = req.body;
+
+    try {
+      await schemaRecomendacao.validate({ exame, recomendacao });
+
+      const repository = await getRepository(Recomendacao).update(id, req.body);
+
+      if (repository.affected === 1) {
+        const repositoryAtualizado = await getRepository(Recomendacao).findOne(
+          id,
+        );
+        return res.status(200).json(repositoryAtualizado);
+      }
+
+      return res.status(404).json({ message: 'Recomendação não encontrada' });
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        return res.status(400).json({ message: error.message });
+      }
+
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    try {
+      const repository = getRepository(Recomendacao);
+      await repository.delete(id);
+
+      return res
+        .status(201)
+        .json({ message: 'Recomendacao deletado com sucesso!' });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }
