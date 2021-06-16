@@ -2,19 +2,13 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Paciente from '../models/Paciente';
 import * as yup from 'yup';
-import moment from 'moment';
-
-const today = moment().format('YYYY-MM-DD HH:MM:SS');
 
 const schemaPaciente = yup.object().shape({
   nome_paciente: yup.string().required('Nome é requerido!'),
   cpf: yup.string().max(11).required('CPF é requerido'),
   sexo_paciente: yup.string().required('Sexo é requerido!'),
   cor_paciente: yup.string().required('Cor é requerida!'),
-  datanasc_paciente: yup
-    .date()
-    .max(today)
-    .required('Data de nascimento é requerida!'),
+  datanasc_paciente: yup.date().required('Data de nascimento é requerida!'),
   aguarda_realizacao: yup.boolean(),
 });
 
@@ -41,7 +35,6 @@ export default class PacientesController {
 
       const repository = getRepository(Paciente);
       const pacientExists = await repository.findOne({ where: { cpf: cpf } });
-      console.log(pacientExists);
 
       if (pacientExists) {
         return res
