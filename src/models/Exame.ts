@@ -1,14 +1,14 @@
 import {
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Pedido from './Pedido';
+import bcrypt from 'bcryptjs';
 
 @Entity('exames')
 class Exame {
@@ -19,23 +19,28 @@ class Exame {
   data_realizacao: Date;
 
   @Column()
-  hora_realizacao: Date;
+  cpf: string;
 
   @Column()
-  laudo_medico: string;
+  senha: string;
 
   @Column()
-  tipo_exame: string;
+  type: string;
 
   @Column()
-  imagem_exame: string;
+  status: string;
 
   @Column()
-  laudo_aprovado: boolean;
+  hipotese: string;
 
-  @JoinColumn()
-  @OneToOne(() => Pedido)
-  pedido: Pedido;
+  @Column()
+  image: string;
+
+  @Column()
+  report: string;
+
+  @Column()
+  report_status: string;
 
   @CreateDateColumn()
   created_at: Date;

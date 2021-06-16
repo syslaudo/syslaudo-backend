@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import * as yup from 'yup';
+
+import nodemailer from 'nodemailer';
 
 import Usuario from '../models/Usuario';
 
@@ -99,10 +102,6 @@ export default class UsuarioController {
     try {
       const users = await getRepository(Usuario).find();
 
-      if (users.length == 0) {
-        return res.status(404).json({ message: 'Nenhum usúario encontrado!' });
-      }
-
       return res.json(users);
     } catch (error) {
       return res.status(500).json({ message: error.message });
@@ -166,6 +165,99 @@ export default class UsuarioController {
       return res.status(201).json({ message: 'Usúario deletado com sucesso!' });
     } catch (error) {
       return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async forgotPassword(req: Request, res: Response): Promise<Response> {
+    const { email_usuario } = req.body;
+    try {
+      const usuarioRepository = getRepository(Usuario);
+      const usuario = await usuarioRepository.find({
+        where: { email_usuario },
+      });
+
+      if (!usuario) {
+        return res
+          .status(400)
+          .json({ message: 'Email não encontrado na base de dados.' });
+      }
+
+      const payload = {
+        id: usuario[0].id,
+        email: usuario[0].email_usuario,
+      };
+
+      const token = jwt.sign(
+        { id: payload.id },
+        `${process.env.RESET_PASSWORD_KEY}`,
+        { expiresIn: '2h' },
+      );
+
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+          user: `${process.env.USER_SMTP}`,
+          pass: `${process.env.PASS_SMTP}`,
+        },
+      });
+
+      transporter
+        .sendMail({
+          from: `${process.env.USER_SMTP}`,
+          to: email_usuario,
+          subject: 'Reset your password link',
+          html: `
+          <h2>Please click on given link to reset your password</h2>
+          <a>${process.env.CLIENT_URL}/redefinir-senha?id=${payload.id}&token=${token}</a>
+        `,
+        })
+        .then()
+        .catch((err) => {
+          throw new Error(err);
+        });
+      return res.status(200).json({
+        message: 'Foi enviado algumas instruções para você recuperar seu email',
+      });
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  }
+
+  public async resetPassword(req: Request, res: Response): Promise<Response> {
+    const { id, token } = req.params;
+    const { password, passwordConfirmation } = req.body;
+
+    if (password !== passwordConfirmation) {
+      return res
+        .status(400)
+        .json({ message: 'As senhas informadas não conferem.' });
+    }
+
+    const usuarioRepository = getRepository(Usuario);
+    const usuario = await usuarioRepository.find({
+      where: { id },
+    });
+    const JWT_SECRET = `${process.env.RESET_PASSWORD_KEY}`;
+
+    if (id !== usuario[0].id) {
+      return res.status(400).json({ message: 'ID invalido.' });
+    }
+
+    const secret = JWT_SECRET;
+
+    try {
+      await jwt.verify(token, secret);
+      const newPassword = bcrypt.hashSync(req.body.password, 8);
+      await getRepository(Usuario).update(
+        { senha: usuario[0].senha },
+        { senha: newPassword },
+      );
+
+      return res.status(201).json({ message: 'Senha alterada com sucesso.' });
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
     }
   }
 }

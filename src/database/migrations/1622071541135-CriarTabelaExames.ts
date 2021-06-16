@@ -1,15 +1,13 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableUnique } from 'typeorm';
 
-export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
+export class CriarTabelaExames1622071541135 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-
     await queryRunner.createTable(
       new Table({
-        name: 'usuarios',
+        name: 'exames',
         columns: [
           {
-            name: 'id',
+            name: 'id_exame',
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
@@ -17,16 +15,15 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
           },
 
           {
-            name: 'nome_do_usuario',
-            type: 'varchar',
+            name: 'data_realizacao',
+            type: 'timestamp without time zone',
             isNullable: false,
           },
 
           {
-            name: 'email_usuario',
+            name: 'cpf',
             type: 'varchar',
-            isUnique: true,
-            isNullable: false,
+            isUnique: false,
           },
 
           {
@@ -35,38 +32,39 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
           },
 
           {
-            name: 'tipo',
+            name: 'type',
             type: 'varchar',
+            isNullable: false,
           },
 
           {
-            name: 'cpf',
+            name: 'status',
             type: 'varchar',
-            isUnique: true,
+            isNullable: false,
           },
 
           {
-            name: 'crm',
+            name: 'hipotese',
             type: 'varchar',
-            isNullable: true,
+            isNullable: false,
           },
 
           {
-            name: 'titulacao',
+            name: 'image',
             type: 'varchar',
-            isNullable: true,
+            isNullable: false,
           },
 
           {
-            name: 'data_residencia',
+            name: 'report',
             type: 'varchar',
-            isNullable: true,
+            isNullable: false,
           },
 
           {
-            name: 'reset_link',
+            name: 'report_status',
             type: 'varchar',
-            default: "''",
+            isNullable: false,
           },
 
           {
@@ -85,10 +83,18 @@ export class CriarTabelaUsuarios1615654689112 implements MigrationInterface {
         ],
       }),
     );
+
+    await queryRunner.createUniqueConstraint(
+      'exames',
+      new TableUnique({
+        columnNames: ['id_exame'],
+        name: 'unique_id_exame',
+      }),
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('DROP EXTENSION "uuid-ossp"');
-    await queryRunner.dropTable('usuarios');
+    await queryRunner.dropTable('exames');
   }
 }

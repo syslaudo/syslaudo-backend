@@ -31,4 +31,3 @@ if (process.env.ENVIRONMENT == 'DEV'){
       "migrationsDir": "./src/database/migrations"
     }
   };
-};
