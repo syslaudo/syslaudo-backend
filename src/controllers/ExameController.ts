@@ -13,7 +13,7 @@ const schemaExame = yup.object().shape({
   type: yup.string().required('O tipo de exame é requerido.'),
   status: yup.string().required('O status é requerido.'),
   hipotese: yup.string().required('A hipótese é requerida.'),
-  image: yup.string().required('O link da imagem é requerido.'),
+  image: yup.string(),
   report: yup.string(),
   report_status: yup.string(),
 });
