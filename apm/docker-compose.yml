@@ -1,0 +1,38 @@
+version: '3.0'
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  skywalking-server:
+    image: apache/skywalking-oap-server:8.3.0-es7
+    container_name: skywalking-server
+    hostname: skywalking-server
+    restart: always
+    environment:
+      - SW_STORAGE=elasticsearch7
+      - SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200
+    ports:
+      - "12800:12800"
+    depends_on: 
+      - elasticsearch
+
+  skywalking-ui:
+    image: apache/skywalking-ui
+    container_name: skywalking-ui
+    hostname: skywalking-ui
+    restart: always
+    environment:
+      - SW_OAP_ADDRESS=skywalking-server:12800
+    depends_on: 
+      - skywalking-server
+    ports:
+      - "3536:8080"
