@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import AuthController from '../controllers/AuthController';
-import ExameController from '../controllers/AuthExameController';
+import ExameController from '../controllers/ExameController';
 import UsuarioController from '../controllers/UsuarioController';
 
 const authController = new AuthController();
@@ -17,6 +17,6 @@ sessionRouter.post(
   usuarioController.resetPassword,
 );
 
-sessionRouter.post('/acesso-paciente', exameController.authenticate);
+sessionRouter.post('/acesso-paciente', exameController.getResult);
 
 export default sessionRouter;
