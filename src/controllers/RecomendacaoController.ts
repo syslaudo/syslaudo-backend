@@ -34,6 +34,15 @@ export default class RecomendacaoController {
     }
   }
 
+  public async listAll(req: Request, res: Response): Promise<Response> {
+    try {
+      const recomendacoes = await getRepository(Recomendacao).find();
+      return res.json(recomendacoes);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
   public async show(req: Request, res: Response): Promise<Response> {
     const { exame } = req.body;
     try {

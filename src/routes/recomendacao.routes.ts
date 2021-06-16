@@ -7,6 +7,7 @@ const recomendacaoRouter = Router();
 
 recomendacaoRouter.post('/create', recomendacaoController.create);
 recomendacaoRouter.post('/show', recomendacaoController.show);
+recomendacaoRouter.get('/listAll', recomendacaoController.listAll);
 recomendacaoRouter.put('/update/:id', recomendacaoController.update);
 recomendacaoRouter.delete('/delete/:id', recomendacaoController.delete);
 
