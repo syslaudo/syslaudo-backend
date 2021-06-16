@@ -102,10 +102,6 @@ export default class UsuarioController {
     try {
       const users = await getRepository(Usuario).find();
 
-      if (users.length == 0) {
-        return res.status(404).json({ message: 'Nenhum usúario encontrado!' });
-      }
-
       return res.json(users);
     } catch (error) {
       return res.status(500).json({ message: error.message });

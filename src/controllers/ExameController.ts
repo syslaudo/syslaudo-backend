@@ -94,10 +94,6 @@ export default class UsuarioController {
     try {
       const exame = await getRepository(Exame).find();
 
-      if (exame.length == 0) {
-        return res.status(404).json({ message: 'Nenhum exame encontrado!' });
-      }
-
       return res.json(exame);
     } catch (error) {
       return res.status(500).json({ message: error.message });

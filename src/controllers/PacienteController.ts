@@ -85,10 +85,6 @@ export default class PacientesController {
     try {
       const pacientes = await getRepository(Paciente).find();
 
-      if (pacientes.length == 0) {
-        return res.status(404).json({ message: 'Nenhum paciente encontrado!' });
-      }
-
       return res.json(pacientes);
     } catch (error) {
       return res.status(500).json({ message: error.message });
